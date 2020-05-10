@@ -1,4 +1,4 @@
-@import "../config/colors";
+@import "../config/config";
 
 ::before,
 ::after,
@@ -10,4 +10,5 @@
 
 body {
   background-color: $body;
+  font-family: "Ubuntu", sans-serif;
 }
