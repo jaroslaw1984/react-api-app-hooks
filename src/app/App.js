@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import Header from "../components/layout/Header/Header";
+import UserCard from "../components/userCard/UserCard";
+import SearchCard from "../components/searchCard/SearchCard";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
+        <UserCard />
+        <SearchCard />
       </div>
     );
   }
