@@ -1,13 +1,13 @@
 import React from "react";
 
-const SearchPanel = ({ click }) => {
+const SearchPanel = ({ getUsers, male, female, checked }) => {
   return (
     <div>
       <label htmlFor="male">Male</label>
-      <input type="checkbox" id="male" />
+      <input type="radio" id="male" checked={checked} onChange={male} />
       <label htmlFor="female">Female</label>
-      <input type="checkbox" id="female" />
-      <button onClick={click}>Search</button>
+      <input type="radio" id="female" checked={!checked} onChange={female} />
+      <button onClick={getUsers}>Search</button>
     </div>
   );
 };
