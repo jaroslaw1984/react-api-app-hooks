@@ -1,11 +1,16 @@
 import React, { Fragment } from "react";
 import SearchPanel from "./searchPanel/SearchPanel";
 
-const SearchCard = ({ click }) => {
+const SearchCard = ({ getUsers, male, female, checked }) => {
   return (
     <Fragment>
       <p>Find your other half</p>
-      <SearchPanel click={click} />
+      <SearchPanel
+        getUsers={getUsers}
+        male={male}
+        female={female}
+        checked={checked}
+      />
     </Fragment>
   );
 };
