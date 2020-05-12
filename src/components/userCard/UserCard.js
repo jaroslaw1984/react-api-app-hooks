@@ -28,11 +28,8 @@ class UserCard extends React.Component {
         <p>
           {users[index].name.first} {users[index].name.last}
         </p>
-        {/* {users.map((user) => (
-        <UserItem key={user.login.salt} user={user} />
-      ))} */}
-        <button onClick={this.handleChangeIndexUp}>Next</button>
         <button onClick={this.handleChangeIndexDown}>Previus</button>
+        <button onClick={this.handleChangeIndexUp}>Next</button>
       </div>
     );
   }
