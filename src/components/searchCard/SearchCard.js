@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import SearchPanel from "./searchPanel/SearchPanel";
 
-const SearchCard = () => {
+const SearchCard = ({ click }) => {
   return (
     <Fragment>
-      <p>SearchCard</p>
-      <SearchPanel />
+      <p>Find your other half</p>
+      <SearchPanel click={click} />
     </Fragment>
   );
 };
