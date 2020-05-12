@@ -7,21 +7,31 @@ class App extends Component {
   state = {
     users: [],
     isloading: false,
-    showCard: false,
     genderMale: true,
+    isChecked: true,
   };
 
-  handleShowCard = () => {
+  handleChangeGenderMale = () => {
     this.setState({
-      showCard: true,
+      genderMale: true,
+      isChecked: true,
+    });
+  };
+  handleChangeGenderFemale = () => {
+    this.setState({
+      genderMale: false,
+      isChecked: false,
     });
   };
 
-  async componentDidMount() {
+  handleGetUsers = () => {
+    // clear array users data when changing the gender
+    this.setState({ users: [] });
+
     try {
-      await fetch(
+      fetch(
         `https://randomuser.me/api/?results=5&gender=${
-          this.state.genderMale ? "female" : "male"
+          this.state.genderMale ? "male" : "female"
         }`
       )
         .then((respond) => respond.json())
@@ -29,21 +39,27 @@ class App extends Component {
           const user = data.results;
 
           this.setState((prevState) => ({
+            showCard: true,
             users: [...prevState.users, ...user],
           }));
         });
     } catch (error) {
       throw error(error);
     }
-  }
+  };
 
   render() {
-    const { users, isloading, genderMale, showCard } = this.state;
+    const { users, isloading, isChecked } = this.state;
     console.log(users);
     return (
       <div className="container">
-        {showCard && <UserCard users={users} />}
-        <SearchCard click={this.handleShowCard} />
+        {users.length > 0 && <UserCard users={users} />}
+        <SearchCard
+          getUsers={this.handleGetUsers}
+          male={this.handleChangeGenderMale}
+          female={this.handleChangeGenderFemale}
+          checked={isChecked}
+        />
         <Footer />
       </div>
     );
