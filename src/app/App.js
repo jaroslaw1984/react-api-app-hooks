@@ -50,7 +50,6 @@ class App extends Component {
 
   render() {
     const { users, isloading, isChecked } = this.state;
-    console.log(users);
     return (
       <div className="container">
         {users.length > 0 && <UserCard users={users} />}

@@ -1,9 +1,14 @@
 import React from "react";
 import UserItem from "./userItem/UserItem";
+import PropTypes from "prop-types";
 
 class UserCard extends React.Component {
   state = {
     index: 0,
+  };
+
+  static propTypes = {
+    users: PropTypes.array.isRequired,
   };
 
   handleChangeIndexNext = () => {

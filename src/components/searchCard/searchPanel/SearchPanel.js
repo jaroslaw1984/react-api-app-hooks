@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import PropTypes from "prop-types";
 
 const SearchPanel = ({ getUsers, male, female, checked }) => (
   <Fragment>
@@ -9,5 +10,12 @@ const SearchPanel = ({ getUsers, male, female, checked }) => (
     <button onClick={getUsers}>Search</button>
   </Fragment>
 );
+
+SearchPanel.propTypes = {
+  getUsers: PropTypes.func.isRequired,
+  male: PropTypes.func.isRequired,
+  female: PropTypes.func.isRequired,
+  checked: PropTypes.bool.isRequired,
+};
 
 export default SearchPanel;

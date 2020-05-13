@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import PropTypes from "prop-types";
 
 const UserItem = ({ users, index, next, previus }) => (
   <Fragment>
@@ -12,5 +13,12 @@ const UserItem = ({ users, index, next, previus }) => (
     {users[index] !== users[4] && <button onClick={next}>Next</button>}
   </Fragment>
 );
+
+UserItem.propTypes = {
+  users: PropTypes.array.isRequired,
+  index: PropTypes.number.isRequired,
+  next: PropTypes.func.isRequired,
+  previus: PropTypes.func.isRequired,
+};
 
 export default UserItem;
