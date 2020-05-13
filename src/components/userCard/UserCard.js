@@ -6,30 +6,27 @@ class UserCard extends React.Component {
     index: 0,
   };
 
-  handleChangeIndexUp = () => {
+  handleChangeIndexNext = () => {
     this.setState({
       index: this.state.index + 1,
     });
   };
 
-  handleChangeIndexDown = () => {
+  handleChangeIndexPrevius = () => {
     this.setState({
       index: this.state.index - 1,
     });
   };
 
   render() {
-    const { users } = this.props;
-    const { index } = this.state;
-
     return (
       <div className="card">
-        <img src={users[index].picture.large} alt={users[index].name.first} />
-        <p>
-          {users[index].name.first} {users[index].name.last}
-        </p>
-        <button onClick={this.handleChangeIndexDown}>Previus</button>
-        <button onClick={this.handleChangeIndexUp}>Next</button>
+        <UserItem
+          users={this.props.users}
+          index={this.state.index}
+          next={this.handleChangeIndexNext}
+          previus={this.handleChangeIndexPrevius}
+        />
       </div>
     );
   }
