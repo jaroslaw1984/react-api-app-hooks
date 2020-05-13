@@ -8,6 +8,7 @@ const UserItem = ({ users, index, next, previus }) => (
     </p>
     {/* condition when button will hide and show */}
     {users[index] !== users[0] && <button onClick={previus}>Previus</button>}
+    {/* Remember to change last index depends how many api will get users from api  */}
     {users[index] !== users[4] && <button onClick={next}>Next</button>}
   </Fragment>
 );
