@@ -11,12 +11,15 @@ class App extends Component {
     isChecked: true,
   };
 
+  // changing values to search only male persons
   handleChangeGenderMale = () => {
     this.setState({
       genderMale: true,
       isChecked: true,
     });
   };
+
+  // changing values to search only famale persons
   handleChangeGenderFemale = () => {
     this.setState({
       genderMale: false,
@@ -28,6 +31,19 @@ class App extends Component {
     // clear array users data when changing the gender
     this.setState({ users: [] });
 
+    // objects that hold messages that will be add to fetched data
+    const randomText = [
+      { text: "and I would love to meet you" },
+      { text: "you want to date a coffee with me" },
+      { text: "maybe we will go to the cinema together ?" },
+      { text: "I am looking for a person to meet together" },
+      { text: "I am looking for adventure" },
+      { text: "I'm looking for someone for one night" },
+      { text: "call me if you are lonely" },
+      { text: "don't be so shay, just call me" },
+    ];
+
+    // feching users data from http api
     try {
       fetch(
         `https://randomuser.me/api/?results=5&gender=${
@@ -36,11 +52,19 @@ class App extends Component {
       )
         .then((respond) => respond.json())
         .then((data) => {
-          const user = data.results;
+          const users = data.results;
 
+          //on fetched data put one message to each single user
+          users.forEach((user) => {
+            for (let i = 0; i < 5; i++) {
+              const msgIndex = Math.floor(Math.random() * randomText.length);
+              user.msg = randomText[msgIndex];
+            }
+          });
+
+          // put all fetched data to state
           this.setState((prevState) => ({
-            showCard: true,
-            users: [...prevState.users, ...user],
+            users: [...prevState.users, ...users],
           }));
         });
     } catch (error) {
@@ -50,6 +74,7 @@ class App extends Component {
 
   render() {
     const { users, isloading, isChecked } = this.state;
+    console.log(4);
     return (
       <div className="container">
         {users.length > 0 && <UserCard users={users} />}
