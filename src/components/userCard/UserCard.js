@@ -7,16 +7,19 @@ class UserCard extends React.Component {
     index: 0,
   };
 
+  // check if users array is array
   static propTypes = {
     users: PropTypes.array.isRequired,
   };
 
+  // it change and increase index of users array
   handleChangeIndexNext = () => {
     this.setState({
       index: this.state.index + 1,
     });
   };
 
+  // it change and decreases index of users array
   handleChangeIndexPrevius = () => {
     this.setState({
       index: this.state.index - 1,
