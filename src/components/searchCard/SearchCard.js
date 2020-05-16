@@ -3,10 +3,9 @@ import SearchPanel from "./searchPanel/SearchPanel";
 import PropTypes from "prop-types";
 
 const SearchCard = ({ getUsers, male, female, checked }) => {
-  const header = "Find your other half";
   return (
     <Fragment>
-      <p>{typeof header === String ? header : "Find your other half"}</p>
+      <p className="header">Find your other half</p>
       <SearchPanel
         getUsers={getUsers}
         male={male}
