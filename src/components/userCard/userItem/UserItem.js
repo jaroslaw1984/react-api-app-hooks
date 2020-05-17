@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const UserItem = ({ users, index, next, previus }) => {
   return (
@@ -10,6 +11,9 @@ const UserItem = ({ users, index, next, previus }) => {
         {users[index].name.first} {users[index].name.last}
       </h2>
       <h4>{users[index].msg.text}</h4>
+      <Link to={`/details/${users[index].name.first}${users[index].name.last}`}>
+        More
+      </Link>
       {/* condition when button will hide and show if index is below first showed person.*/}
       {users[index] !== users[0] && <button onClick={previus}>Previus</button>}
       {/* Remember to change last index depends how many api will get users from api  */}
