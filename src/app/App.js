@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import UserCard from "../components/userCard/UserCard";
 import SearchCard from "../components/searchCard/SearchCard";
 import Footer from "../components/footer/Footer";
+import Loading from "../components/loading/Loading";
 
 class App extends Component {
   state = {
     users: [],
-    isloading: false,
+    isLoading: false,
     genderMale: true,
     isChecked: true,
   };
@@ -28,8 +29,11 @@ class App extends Component {
   };
 
   handleGetUsers = () => {
-    // clear array users data when changing the gender
-    this.setState({ users: [] });
+    // clear array users data when searching diffrent the gender and set isLoading for ture
+    this.setState({ users: [], isLoading: true });
+
+    // how many users will be fetched from api
+    const numberFetchedUsers = 5;
 
     // objects that hold messages that will be add to fetched data
     const randomText = [
@@ -44,40 +48,47 @@ class App extends Component {
     ];
 
     // feching users data from http api
-    try {
-      fetch(
-        `https://randomuser.me/api/?results=5&gender=${
-          this.state.genderMale ? "male" : "female"
-        }`
-      )
-        .then((respond) => respond.json())
-        .then((data) => {
-          const users = data.results;
+    setTimeout(() => {
+      try {
+        fetch(
+          `https://randomuser.me/api/?results=${numberFetchedUsers}&gender=${
+            this.state.genderMale ? "male" : "female"
+          }`
+        )
+          .then((respond) => respond.json())
+          .then((data) => {
+            const users = data.results;
 
-          //on fetched data put one message to each single user
-          users.forEach((user) => {
-            for (let i = 0; i < 5; i++) {
-              const msgIndex = Math.floor(Math.random() * randomText.length);
-              user.msg = randomText[msgIndex];
-            }
+            //on fetched data put one message to each single user
+            users.forEach((user) => {
+              for (let i = 0; i < numberFetchedUsers; i++) {
+                const msgIndex = Math.floor(Math.random() * randomText.length);
+                user.msg = randomText[msgIndex];
+              }
+            });
+
+            // put all fetched data to state
+            this.setState((prevState) => ({
+              users: [...prevState.users, ...users],
+              isLoading: false,
+            }));
           });
-
-          // put all fetched data to state
-          this.setState((prevState) => ({
-            users: [...prevState.users, ...users],
-          }));
-        });
-    } catch (error) {
-      throw error(error);
-    }
+      } catch (error) {
+        throw error(error);
+      }
+    }, 2000);
   };
 
   render() {
-    const { users, isloading, isChecked } = this.state;
-    console.log(4);
+    const { users, isLoading, isChecked } = this.state;
+
     return (
       <div className="container">
-        {users.length > 0 && <UserCard users={users} />}
+        {isLoading ? (
+          <Loading />
+        ) : (
+          users.length > 0 && <UserCard users={users} />
+        )}
         <SearchCard
           getUsers={this.handleGetUsers}
           male={this.handleChangeGenderMale}
