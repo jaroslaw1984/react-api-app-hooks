@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const SearchCard = ({ getUsers, male, female, checked }) => {
   return (
     <Fragment>
-      <p className="header">Find your other half</p>
+      <h2 className="header">Find your other half</h2>
       <SearchPanel
         getUsers={getUsers}
         male={male}
