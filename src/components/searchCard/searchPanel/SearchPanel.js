@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const SearchPanel = ({ getUsers, male, female, checked }) => (
   <Fragment>
@@ -8,6 +9,9 @@ const SearchPanel = ({ getUsers, male, female, checked }) => (
     <label htmlFor="female">Female</label>
     <input type="radio" id="female" checked={!checked} onChange={female} />
     <button onClick={getUsers}>Search</button>
+    <p>
+      Tell me more about this <Link to="/about">Application</Link>
+    </p>
   </Fragment>
 );
 
