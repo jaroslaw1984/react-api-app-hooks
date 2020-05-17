@@ -1,8 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserCard from "../components/userCard/UserCard";
 import SearchCard from "../components/searchCard/SearchCard";
 import Footer from "../components/footer/Footer";
 import Loading from "../components/loading/Loading";
+import About from "../components/pages/about/About";
+import Details from "../components/pages/details/Details";
 
 class App extends Component {
   state = {
@@ -83,20 +86,37 @@ class App extends Component {
     const { users, isLoading, isChecked } = this.state;
 
     return (
-      <div className="container">
-        {isLoading ? (
-          <Loading />
-        ) : (
-          users.length > 0 && <UserCard users={users} />
-        )}
-        <SearchCard
-          getUsers={this.handleGetUsers}
-          male={this.handleChangeGenderMale}
-          female={this.handleChangeGenderFemale}
-          checked={isChecked}
-        />
-        <Footer />
-      </div>
+      <Router>
+        <div className="container">
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={(props) => (
+                <Fragment>
+                  {isLoading ? (
+                    <Loading />
+                  ) : (
+                    users.length > 0 && <UserCard users={users} />
+                  )}
+                  <SearchCard
+                    getUsers={this.handleGetUsers}
+                    male={this.handleChangeGenderMale}
+                    female={this.handleChangeGenderFemale}
+                    checked={isChecked}
+                  />
+                </Fragment>
+              )}
+            />
+          </Switch>
+          <Route path="/about" component={About} />
+          <Route
+            path="/details/:name"
+            render={(props) => <Details {...props} users={users} />}
+          />
+          <Footer />
+        </div>
+      </Router>
     );
   }
 }
