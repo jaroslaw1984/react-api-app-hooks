@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserCard from "../components/userCard/UserCard";
 import SearchCard from "../components/searchCard/SearchCard";
@@ -7,33 +7,30 @@ import Loading from "../components/loading/Loading";
 import About from "../components/pages/about/About";
 import Details from "../components/pages/details/Details";
 
-class App extends Component {
-  state = {
-    users: [],
-    isLoading: false,
-    genderMale: true,
-    isChecked: true,
-  };
+import AppState from "../components/context/resources/AppState";
+
+const App = () => {
+  const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [genderMale, setGenderMale] = useState(true);
+  const [isChecked, setIsChecked] = useState(true);
 
   // changing values to search only male persons
-  handleChangeGenderMale = () => {
-    this.setState({
-      genderMale: true,
-      isChecked: true,
-    });
+  const handleChangeGenderMale = () => {
+    setGenderMale(true);
+    setIsChecked(true);
   };
 
   // changing values to search only famale persons
-  handleChangeGenderFemale = () => {
-    this.setState({
-      genderMale: false,
-      isChecked: false,
-    });
+  const handleChangeGenderFemale = () => {
+    setGenderMale(false);
+    setIsChecked(false);
   };
 
-  handleGetUsers = () => {
+  const handleGetUsers = () => {
     // clear array users data when searching diffrent the gender and set isLoading for ture
-    this.setState({ users: [], isLoading: true });
+    setUsers([]);
+    setIsLoading(true);
 
     // how many users will be fetched from api
     const numberFetchedUsers = 5;
@@ -46,8 +43,8 @@ class App extends Component {
       { text: "I am looking for a person to meet together" },
       { text: "I am looking for adventure" },
       { text: "I'm looking for someone for one night" },
-      { text: "call me if you are lonely" },
-      { text: "don't be so shay, just call me" },
+      { text: "email me if you are lonely" },
+      { text: "don't be so shy, just send me an email" },
     ];
 
     // feching users data from http api
@@ -55,7 +52,7 @@ class App extends Component {
       try {
         fetch(
           `https://randomuser.me/api/?results=${numberFetchedUsers}&gender=${
-            this.state.genderMale ? "male" : "female"
+            genderMale ? "male" : "female"
           }`
         )
           .then((respond) => respond.json())
@@ -71,10 +68,8 @@ class App extends Component {
             });
 
             // put all fetched data to state
-            this.setState((prevState) => ({
-              users: [...prevState.users, ...users],
-              isLoading: false,
-            }));
+            setUsers([...users]);
+            setIsLoading(false);
           });
       } catch (error) {
         throw error(error);
@@ -82,10 +77,8 @@ class App extends Component {
     }, 2000);
   };
 
-  render() {
-    const { users, isLoading, isChecked } = this.state;
-
-    return (
+  return (
+    <AppState>
       <Router>
         <div className="container">
           <Switch>
@@ -100,9 +93,9 @@ class App extends Component {
                     users.length > 0 && <UserCard users={users} />
                   )}
                   <SearchCard
-                    getUsers={this.handleGetUsers}
-                    male={this.handleChangeGenderMale}
-                    female={this.handleChangeGenderFemale}
+                    getUsers={handleGetUsers}
+                    male={handleChangeGenderMale}
+                    female={handleChangeGenderFemale}
                     checked={isChecked}
                   />
                 </Fragment>
@@ -117,8 +110,8 @@ class App extends Component {
           <Footer />
         </div>
       </Router>
-    );
-  }
-}
+    </AppState>
+  );
+};
 
 export default App;
