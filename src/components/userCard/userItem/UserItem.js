@@ -3,15 +3,20 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const UserItem = ({ users, index, next, previus }) => {
+  const name = users[index].name.first;
+  const last = users[index].name.last;
+  const picture = users[index].picture.large;
+  const msg = users[index].msg.text;
+
   return (
     <Fragment>
-      <img src={users[index].picture.large} alt={users[index].name.first} />
+      <img src={picture} alt={name} />
       <h4>Hey, my name is</h4>
       <h2>
-        {users[index].name.first} {users[index].name.last}
+        {name} {last}
       </h2>
-      <h4>{users[index].msg.text}</h4>
-      <Link to={`/details/${users[index].name.first}${users[index].name.last}`}>
+      <h4>{msg}</h4>
+      <Link to={`/details/${name.toLowerCase()}${last.toLowerCase()}`}>
         More
       </Link>
       {/* condition when button will hide and show if index is below first showed person.*/}
