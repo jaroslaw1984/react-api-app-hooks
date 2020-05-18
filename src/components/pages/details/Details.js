@@ -1,13 +1,16 @@
 import React, { Fragment } from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const Details = ({ match, users }) => {
-  // find user with pecific condition
+  // find user with specific condition
   const user = users.find(
-    (user) => user.name.first + user.name.last === match.params.name
+    (user) =>
+      user.name.first.toLowerCase() + user.name.last.toLowerCase() ===
+      match.params.name
   );
 
-  // condition if user will refresh the page
+  // condition if user will refresh the page at this endpoint
   if (user === undefined) {
     return (
       <Fragment>
@@ -35,6 +38,11 @@ const Details = ({ match, users }) => {
       </div>
     );
   }
+};
+
+Details.propTypes = {
+  match: PropTypes.object.isRequired,
+  users: PropTypes.array.isRequired,
 };
 
 export default Details;
