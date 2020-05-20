@@ -1,25 +1,39 @@
-import React, { Fragment } from "react";
-import PropTypes from "prop-types";
+import React, { Fragment, useContext } from "react";
 import { Link } from "react-router-dom";
+import AppContexct from "../../context/resources/appContext";
 
-const SearchPanel = ({ getUsers, male, female, checked }) => (
-  <Fragment>
-    <label htmlFor="male">Male</label>
-    <input type="radio" id="male" checked={checked} onChange={male} />
-    <label htmlFor="female">Female</label>
-    <input type="radio" id="female" checked={!checked} onChange={female} />
-    <button onClick={getUsers}>Search</button>
-    <p>
-      Tell me more about this <Link to="/about">Application</Link>
-    </p>
-  </Fragment>
-);
+const SearchPanel = () => {
+  const appContext = useContext(AppContexct);
 
-SearchPanel.propTypes = {
-  getUsers: PropTypes.func.isRequired,
-  male: PropTypes.func.isRequired,
-  female: PropTypes.func.isRequired,
-  checked: PropTypes.bool.isRequired,
+  const {
+    handleChangeGenderMale,
+    handleChangeGenderFemale,
+    isChecked,
+    handleGetUsers,
+  } = appContext;
+
+  return (
+    <Fragment>
+      <label htmlFor="male">Male</label>
+      <input
+        type="radio"
+        id="male"
+        checked={isChecked}
+        onChange={handleChangeGenderMale}
+      />
+      <label htmlFor="female">Female</label>
+      <input
+        type="radio"
+        id="female"
+        checked={!isChecked}
+        onChange={handleChangeGenderFemale}
+      />
+      <button onClick={handleGetUsers}>Search</button>
+      <p>
+        Tell me more about this <Link to="/about">Application</Link>
+      </p>
+    </Fragment>
+  );
 };
 
 export default SearchPanel;

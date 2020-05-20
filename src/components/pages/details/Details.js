@@ -1,8 +1,13 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import AppContect from "../../context/resources/appContext";
 
-const Details = ({ match, users }) => {
+const Details = ({ match }) => {
+  const appContext = useContext(AppContect);
+
+  const { users } = appContext;
+
   // find user with specific condition
   const user = users.find(
     (user) =>
@@ -42,7 +47,6 @@ const Details = ({ match, users }) => {
 
 Details.propTypes = {
   match: PropTypes.object.isRequired,
-  users: PropTypes.array.isRequired,
 };
 
 export default Details;

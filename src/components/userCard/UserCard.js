@@ -1,35 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import UserItem from "./userItem/UserItem";
-import PropTypes from "prop-types";
+import AppContext from "../context/resources/appContext";
+import Loading from "../loading/Loading";
 
-const UserCard = ({ users }) => {
-  const [index, setIndex] = useState(0);
+const UserCard = () => {
+  const appContext = useContext(AppContext);
 
-  // it change and increase index of users array
-  const handleChangeIndexNext = () => {
-    setIndex(index + 1);
-  };
-
-  // it change and decreases index of users array
-  const handleChangeIndexPrevius = () => {
-    setIndex(index - 1);
-  };
+  const { isLoading, users } = appContext;
 
   return (
     <div className="card">
-      <UserItem
-        users={users}
-        index={index}
-        next={handleChangeIndexNext}
-        previus={handleChangeIndexPrevius}
-      />
+      {isLoading ? <Loading /> : users.length > 0 && <UserItem />}
     </div>
   );
-};
-
-// check if users array is array
-UserCard.propTypes = {
-  users: PropTypes.array.isRequired,
 };
 
 export default UserCard;
