@@ -30,11 +30,15 @@ const UserItem = () => {
       </Link>
       {/* condition when button will hide and show if index is below first showed person.*/}
       {users[index] !== users[0] && (
-        <button onClick={handleChangeIndexPrevius}>Previus</button>
+        <button type="button" onClick={handleChangeIndexPrevius}>
+          Previus
+        </button>
       )}
       {/* Remember to change last index depends how many api will get users from api  */}
       {users[index] !== users[4] && (
-        <button onClick={handleChangeIndexNext}>Next</button>
+        <button type="button" onClick={handleChangeIndexNext}>
+          Next
+        </button>
       )}
     </Fragment>
   );
