@@ -17,8 +17,8 @@ const App = () => {
             <Route exact path="/about" component={About} />
             <Route exact path="/details/:name" component={Details} />
             <Route component={NotFound} />
-            <Footer />
           </Switch>
+          <Footer />
         </div>
       </Router>
     </AppState>
