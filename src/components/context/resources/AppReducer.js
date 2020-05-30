@@ -6,6 +6,7 @@ import {
   SET_CHECKED,
   SET_INCREMENT,
   SET_DECREMENT,
+  SET_RATE,
 } from "../types";
 
 export default (state, action) => {
@@ -16,6 +17,11 @@ export default (state, action) => {
         users: action.payload,
         isLoading: false,
         index: 0,
+      };
+    case SET_RATE:
+      return {
+        ...state,
+        rating: action.payload,
       };
     case SET_USERS:
       return {
