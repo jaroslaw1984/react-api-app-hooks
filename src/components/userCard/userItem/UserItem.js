@@ -1,6 +1,7 @@
 import React, { Fragment, useContext } from "react";
 import { Link } from "react-router-dom";
 import AppContext from "../../context/resources/appContext";
+import RateUser from "../rateUser/RateUser";
 
 const UserItem = () => {
   const appContext = useContext(AppContext);
@@ -8,14 +9,20 @@ const UserItem = () => {
   const {
     users,
     index,
+    rating,
+    handleSetRate,
     handleChangeIndexNext,
     handleChangeIndexPrevius,
   } = appContext;
 
-  const name = users[index].name.first;
+  let name = users[index].name.first;
   const last = users[index].name.last;
   const picture = users[index].picture.large;
   const msg = users[index].msg.text;
+  // const user = users[index];
+  // const rating = users[index].rating;
+
+  // console.log(rating);
 
   return (
     <Fragment>
@@ -25,6 +32,13 @@ const UserItem = () => {
         {name} {last}
       </h2>
       <h4>{msg}</h4>
+      <RateUser
+        users={users}
+        index={index}
+        setRating={handleSetRate}
+        rating={rating}
+      />
+      <span className="rating__number">{rating}</span>
       <Link to={`/details/${name.toLowerCase()}${last.toLowerCase()}`}>
         More
       </Link>
