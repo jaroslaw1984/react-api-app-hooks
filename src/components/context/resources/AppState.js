@@ -9,16 +9,17 @@ import {
   SET_CHECKED,
   SET_INCREMENT,
   SET_DECREMENT,
+  SET_RATE,
 } from "../types";
 
 const AppState = (props) => {
-  // const [state, useState] = useState(0)
   const [state, dispatch] = useReducer(AppReducer, {
     users: [],
     isLoading: false,
     genderMale: true,
     isChecked: true,
     index: 0,
+    rating: 0,
   });
 
   // it change and increase index of users array
@@ -43,6 +44,11 @@ const AppState = (props) => {
     dispatch({ type: SET_CHECKED, to: false });
   };
 
+  // set value to state how many star were pressed
+  const handleSetRate = (value) => {
+    dispatch({ type: SET_RATE, payload: value });
+  };
+
   // Search users
   const handleGetUsers = () => {
     // clear array users data when searching diffrent the gender and set isLoading for ture
@@ -59,7 +65,7 @@ const AppState = (props) => {
       { text: "maybe we will go to the cinema together ?" },
       { text: "I am looking for a person to meet together" },
       { text: "I am looking for adventure" },
-      { text: "I'm looking for someone for one night" },
+      { text: "I'm looking for someone at lonely nights" },
       { text: "email me if you are lonely" },
       { text: "don't be so shy, just send me an email" },
     ];
@@ -81,6 +87,7 @@ const AppState = (props) => {
               for (let i = 0; i < numberFetchedUsers; i++) {
                 const msgIndex = Math.floor(Math.random() * randomText.length);
                 user.msg = randomText[msgIndex];
+                user.rating = 0;
               }
             });
 
@@ -104,6 +111,8 @@ const AppState = (props) => {
         genderMale: state.genderMale,
         isChecked: state.isChecked,
         index: state.index,
+        rating: state.rating,
+        handleSetRate,
         handleGetUsers,
         handleChangeGenderMale,
         handleChangeGenderFemale,
