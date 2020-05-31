@@ -6,9 +6,10 @@ const RateUser = ({ users, index, setRating, rating }) => {
   useEffect(() => {
     // debugger;
     // save user rate to current user
-    if (users[index].rating === 0) users[index].rating = rating;
-    // this condition prevent from infnity loop
+    if (users[index].rating === 0 && rating !== undefined)
+      users[index].rating = rating;
     else {
+      // this condition prevent from infnity loop
       if (rating > 0) return;
       else {
         // set value to app state
@@ -16,6 +17,8 @@ const RateUser = ({ users, index, setRating, rating }) => {
       }
     }
   }, [index, setRating, users, rating]);
+
+  console.log(users);
 
   return (
     <Fragment>
