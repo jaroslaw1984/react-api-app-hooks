@@ -20,9 +20,6 @@ const UserItem = () => {
   const picture = users[index].picture.large;
   const msg = users[index].msg.text;
   // const user = users[index];
-  // const rating = users[index].rating;
-
-  // console.log(rating);
 
   return (
     <Fragment>

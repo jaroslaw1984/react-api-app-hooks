@@ -14,9 +14,14 @@ export default (state, action) => {
     case SEARCH_USERS:
       return {
         ...state,
+        // get users form html api
         users: action.payload,
+        // do not show loading icon
         isLoading: false,
+        // set the index
         index: 0,
+        // clear rating if will be new search
+        rating: 0,
       };
     case SET_RATE:
       return {
@@ -42,11 +47,13 @@ export default (state, action) => {
       return {
         ...state,
         index: state.index + action.by,
+        rating: 0,
       };
     case SET_DECREMENT:
       return {
         ...state,
         index: state.index - action.by,
+        rating: action.rate,
       };
     case SET_GENDER:
       return {

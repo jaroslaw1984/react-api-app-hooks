@@ -4,15 +4,18 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const RateUser = ({ users, index, setRating, rating }) => {
   useEffect(() => {
-    // if (users[index].rating === 0 && rating !== 0) {
-    //   setRating(0);
-    // } else {
-    users[index].rating = rating;
-    // }
-  });
-
-  console.log(rating);
-  console.log(users);
+    // debugger;
+    // save user rate to current user
+    if (users[index].rating === 0) users[index].rating = rating;
+    // this condition prevent from infnity loop
+    else {
+      if (rating > 0) return;
+      else {
+        // set value to app state
+        setRating(users[index].rating);
+      }
+    }
+  }, [index, setRating, users, rating]);
 
   return (
     <Fragment>

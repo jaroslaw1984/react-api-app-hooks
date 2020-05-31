@@ -30,6 +30,7 @@ const AppState = (props) => {
   // it change and decreases index of users array
   const handleChangeIndexPrevius = () => {
     dispatch({ type: SET_DECREMENT, by: 1 });
+    dispatch({ type: SET_RATE, rate: state.rating });
   };
 
   // changing values to search only male persons
