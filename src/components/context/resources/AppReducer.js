@@ -7,6 +7,7 @@ import {
   SET_INCREMENT,
   SET_DECREMENT,
   SET_RATE,
+  PUT_FAVORITE,
 } from "../types";
 
 export default (state, action) => {
@@ -59,6 +60,11 @@ export default (state, action) => {
       return {
         ...state,
         genderMale: action.to,
+      };
+    case PUT_FAVORITE:
+      return {
+        ...state,
+        favoriteUsers: action.user,
       };
     default:
       return state;
