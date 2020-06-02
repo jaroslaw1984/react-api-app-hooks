@@ -39,6 +39,7 @@ const RateUser = ({ users, index, setRating, rating }) => {
             </label>
           );
         })}
+        <span className="rating__number">{rating}</span>
       </div>
     </Fragment>
   );
