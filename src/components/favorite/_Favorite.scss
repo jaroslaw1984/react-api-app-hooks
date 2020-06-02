@@ -1,0 +1,14 @@
+.favorite {
+  position: fixed;
+  top: 20%;
+  right: 0;
+  transform: translateY(-20%);
+  .favorite__img {
+    width: 80px;
+    height: 80px;
+    border: 5px double #fff;
+    border-radius: 66px;
+    background: #fff;
+    overflow: hidden;
+  }
+}
