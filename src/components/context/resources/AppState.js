@@ -11,6 +11,7 @@ import {
   SET_DECREMENT,
   SET_RATE,
   PUT_FAVORITE,
+  SHOW_MODAL,
 } from "../types";
 
 const AppState = (props) => {
@@ -20,6 +21,7 @@ const AppState = (props) => {
     isLoading: false,
     genderMale: true,
     isChecked: true,
+    modal: false,
     index: 0,
     rating: 0,
   });
@@ -52,9 +54,13 @@ const AppState = (props) => {
     dispatch({ type: SET_RATE, payload: value });
   };
 
+  // Add person to favorite bookmark
   const handlePutToFavorite = (user) => {
-    console.log(user);
     dispatch({ type: PUT_FAVORITE, user: [...state.favoriteUsers, user] });
+  };
+
+  const handleShowModal = () => {
+    dispatch({ type: SHOW_MODAL });
   };
 
   // Search users
@@ -119,6 +125,7 @@ const AppState = (props) => {
         isLoading: state.isLoading,
         genderMale: state.genderMale,
         isChecked: state.isChecked,
+        modal: state.modal,
         index: state.index,
         rating: state.rating,
         handleSetRate,
@@ -128,6 +135,7 @@ const AppState = (props) => {
         handleChangeIndexNext,
         handleChangeIndexPrevius,
         handlePutToFavorite,
+        handleShowModal,
       }}
     >
       {props.children}
