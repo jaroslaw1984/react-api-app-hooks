@@ -6,3 +6,4 @@ export const SET_CHECKED = "SET_CHECKED";
 export const SET_INCREMENT = "SET_INCREMENT";
 export const SET_DECREMENT = "SET_DECREMENT";
 export const SET_RATE = "SET_RATE";
+export const PUT_FAVORITE = "PUT_FAVORITE";
