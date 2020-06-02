@@ -2,11 +2,20 @@ import React, { Fragment, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import AppContect from "../../context/resources/appContext";
+import RateUser from "../../userCard/rateUser/RateUser";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const Details = ({ match }) => {
   const appContext = useContext(AppContect);
 
-  const { users } = appContext;
+  const {
+    users,
+    index,
+    rating,
+    handleSetRate,
+    handlePutToFavorite,
+  } = appContext;
 
   // find user with specific condition
   const user = users.find(
@@ -40,6 +49,17 @@ const Details = ({ match }) => {
         </div>
 
         <Link to="/">Go back</Link>
+        <RateUser
+          users={users}
+          index={index}
+          setRating={handleSetRate}
+          rating={rating}
+        />
+        <FontAwesomeIcon
+          icon={faPlus}
+          className="plus"
+          onClick={() => handlePutToFavorite(users[index])}
+        />
       </div>
     );
   }
