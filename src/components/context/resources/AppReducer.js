@@ -8,6 +8,7 @@ import {
   SET_DECREMENT,
   SET_RATE,
   PUT_FAVORITE,
+  SHOW_MODAL,
 } from "../types";
 
 export default (state, action) => {
@@ -65,6 +66,12 @@ export default (state, action) => {
       return {
         ...state,
         favoriteUsers: action.user,
+      };
+
+    case SHOW_MODAL:
+      return {
+        ...state,
+        modal: true,
       };
     default:
       return state;
