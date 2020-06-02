@@ -2,9 +2,9 @@ import React, { Fragment, useContext } from "react";
 import { Link } from "react-router-dom";
 import AppContext from "../../context/resources/appContext";
 import RateUser from "../rateUser/RateUser";
+import Favorite from "../../favorite/Favorite";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import Favorite from "../../favorite/Favorite";
 
 const UserItem = () => {
   const appContext = useContext(AppContext);
@@ -13,6 +13,7 @@ const UserItem = () => {
     users,
     index,
     rating,
+    favoriteUsers,
     handleSetRate,
     handleChangeIndexNext,
     handleChangeIndexPrevius,
@@ -45,8 +46,7 @@ const UserItem = () => {
         rating={rating}
       />
       {/* show added favorite users from array */}
-      <Favorite />
-      <span className="rating__number">{rating}</span>
+      {favoriteUsers.length > 0 && <Favorite />}
       <Link to={`/details/${name.toLowerCase()}${last.toLowerCase()}`}>
         More
       </Link>
