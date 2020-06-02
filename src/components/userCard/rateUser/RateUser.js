@@ -18,8 +18,6 @@ const RateUser = ({ users, index, setRating, rating }) => {
     }
   }, [index, setRating, users, rating]);
 
-  console.log(users);
-
   return (
     <Fragment>
       <div className="rating">

@@ -8,7 +8,7 @@ const Favorite = () => {
 
   return (
     <div className="container">
-      <span>Counter: {favoriteUsers.lenght}</span>
+      <span>Counter: {favoriteUsers.length}</span>
     </div>
   );
 };
