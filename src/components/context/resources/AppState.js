@@ -10,11 +10,13 @@ import {
   SET_INCREMENT,
   SET_DECREMENT,
   SET_RATE,
+  PUT_FAVORITE,
 } from "../types";
 
 const AppState = (props) => {
   const [state, dispatch] = useReducer(AppReducer, {
     users: [],
+    favoriteUsers: [],
     isLoading: false,
     genderMale: true,
     isChecked: true,
@@ -48,6 +50,11 @@ const AppState = (props) => {
   // set value to state how many star were pressed
   const handleSetRate = (value) => {
     dispatch({ type: SET_RATE, payload: value });
+  };
+
+  const handlePutToFavorite = (user) => {
+    console.log(user);
+    dispatch({ type: PUT_FAVORITE, user: [...state.favoriteUsers, user] });
   };
 
   // Search users
@@ -108,6 +115,7 @@ const AppState = (props) => {
     <AppContext.Provider
       value={{
         users: state.users,
+        favoriteUsers: state.favoriteUsers,
         isLoading: state.isLoading,
         genderMale: state.genderMale,
         isChecked: state.isChecked,
@@ -119,6 +127,7 @@ const AppState = (props) => {
         handleChangeGenderFemale,
         handleChangeIndexNext,
         handleChangeIndexPrevius,
+        handlePutToFavorite,
       }}
     >
       {props.children}
