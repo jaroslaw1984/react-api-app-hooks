@@ -4,10 +4,10 @@ import AppContext from "../context/resources/appContext";
 const Favorite = () => {
   const appContext = useContext(AppContext);
 
-  const { favoriteUsers, handleShowModal } = appContext;
+  const { favoriteUsers, handleShowModal, modal } = appContext;
 
   return (
-    <div className="favorite">
+    <div className={modal ? "favotite" : "favorite active"}>
       <div className="favorite__img">
         <img
           src={favoriteUsers.slice(-1)[0].picture.medium}

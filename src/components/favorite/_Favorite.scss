@@ -1,9 +1,12 @@
 .favorite {
   position: fixed;
   top: 20%;
-  right: 0;
-  transform: translateY(-20%);
+  right: -100px;
+  transition: all 1s ease;
   cursor: pointer;
+  &.active {
+    animation: fadeIn 1s both;
+  }
   .favorite__img {
     width: 80px;
     height: 80px;
@@ -11,5 +14,14 @@
     border-radius: 66px;
     background: #fff;
     overflow: hidden;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    right: -100px;
+  }
+  100% {
+    right: 0;
   }
 }
