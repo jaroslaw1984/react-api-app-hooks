@@ -2,7 +2,6 @@
   position: fixed;
   top: 20%;
   right: -100px;
-  transition: all 1s ease;
   cursor: pointer;
   &.active {
     animation: fadeIn 1s both;

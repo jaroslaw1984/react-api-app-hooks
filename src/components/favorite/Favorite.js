@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import AppContext from "../context/resources/appContext";
 
 const Favorite = () => {
@@ -6,8 +6,12 @@ const Favorite = () => {
 
   const { favoriteUsers, handleShowModal, modal } = appContext;
 
+  useEffect(() => {
+    localStorage.setItem("users", JSON.stringify(favoriteUsers));
+  });
+
   return (
-    <div className={modal ? "favotite" : "favorite active"}>
+    <div className={modal ? "favorite" : "favorite active"}>
       <div className="favorite__img">
         <img
           src={favoriteUsers.slice(-1)[0].picture.medium}
