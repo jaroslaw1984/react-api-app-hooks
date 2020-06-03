@@ -12,6 +12,7 @@ import {
   SET_RATE,
   PUT_FAVORITE,
   SHOW_MODAL,
+  CLOSE_MODAL,
 } from "../types";
 
 const AppState = (props) => {
@@ -56,11 +57,18 @@ const AppState = (props) => {
 
   // Add person to favorite bookmark
   const handlePutToFavorite = (user) => {
-    dispatch({ type: PUT_FAVORITE, user: [...state.favoriteUsers, user] });
+    if (!state.favoriteUsers.includes(user)) {
+      dispatch({ type: PUT_FAVORITE, user: [...state.favoriteUsers, user] });
+    } else {
+      alert("Już jest dodany do ulubionych");
+    }
   };
 
   const handleShowModal = () => {
     dispatch({ type: SHOW_MODAL });
+  };
+  const handleCloseModal = () => {
+    dispatch({ type: CLOSE_MODAL });
   };
 
   // Search users
@@ -136,6 +144,7 @@ const AppState = (props) => {
         handleChangeIndexPrevius,
         handlePutToFavorite,
         handleShowModal,
+        handleCloseModal,
       }}
     >
       {props.children}

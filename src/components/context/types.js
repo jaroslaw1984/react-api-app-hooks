@@ -8,3 +8,4 @@ export const SET_DECREMENT = "SET_DECREMENT";
 export const SET_RATE = "SET_RATE";
 export const PUT_FAVORITE = "PUT_FAVORITE";
 export const SHOW_MODAL = "SHOW_MODAL";
+export const CLOSE_MODAL = "CLOSE_MODAL";

@@ -9,6 +9,7 @@ import {
   SET_RATE,
   PUT_FAVORITE,
   SHOW_MODAL,
+  CLOSE_MODAL,
 } from "../types";
 
 export default (state, action) => {
@@ -72,6 +73,11 @@ export default (state, action) => {
       return {
         ...state,
         modal: true,
+      };
+    case CLOSE_MODAL:
+      return {
+        ...state,
+        modal: false,
       };
     default:
       return state;
