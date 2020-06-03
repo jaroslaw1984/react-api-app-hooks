@@ -1,3 +1,3 @@
-### React API app with Hooks - looking for a date
+### React API app with Hooks and Context - Looking for a date
 
 ## In progress ....
