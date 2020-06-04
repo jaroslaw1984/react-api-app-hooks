@@ -2,10 +2,8 @@ import React, { Fragment, useContext } from "react";
 import { Link } from "react-router-dom";
 import AppContext from "../../context/resources/appContext";
 import RateUser from "../rateUser/RateUser";
-import Favorite from "../../favorite/Favorite";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import Modal from "../../favorite/Modal/Modal";
 
 const UserItem = () => {
   const appContext = useContext(AppContext);
@@ -14,8 +12,6 @@ const UserItem = () => {
     users,
     index,
     rating,
-    favoriteUsers,
-    modal,
     handleSetRate,
     handleChangeIndexNext,
     handleChangeIndexPrevius,
@@ -48,10 +44,6 @@ const UserItem = () => {
         setRating={handleSetRate}
         rating={rating}
       />
-      {/* show favorite people from array when it is not empty*/}
-      {favoriteUsers.length > 0 && <Favorite />}
-      {/* initial state condition, show modal if it is true*/}
-      {modal && <Modal />}
       {/* It will show page with details of the person */}
       <Link to={`/details/${name.toLowerCase()}${last.toLowerCase()}`}>
         <button className="button button--state-more">More</button>
