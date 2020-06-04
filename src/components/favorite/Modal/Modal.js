@@ -5,14 +5,18 @@ import AppContext from "../../context/resources/appContext";
 const Modal = () => {
   const appContext = useContext(AppContext);
 
-  const { handleCloseModal, favoriteUsers } = appContext;
+  const {
+    handleCloseModal,
+    handleSetRateFromModal,
+    favoriteUsers,
+  } = appContext;
 
   return (
     <div className="modal">
       <div className="modal__close" onClick={handleCloseModal}></div>
       <div className="modal__containter">
         {favoriteUsers.map((user) => (
-          <div className="modal__user--elem">
+          <div className="modal__user--elem" key={user.cell}>
             <img
               src={user.picture.medium}
               alt={user.name.first}
@@ -26,7 +30,10 @@ const Modal = () => {
             >
               <button
                 className="button button--state-more"
-                onClick={handleCloseModal}
+                onClick={() => {
+                  handleCloseModal();
+                  handleSetRateFromModal(user.rating);
+                }}
               >
                 More
               </button>
