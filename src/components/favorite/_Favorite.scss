@@ -6,6 +6,9 @@
   &.active {
     animation: fadeIn 1s both;
   }
+  &.hide {
+    animation: fadeOut 0.5s backwards;
+  }
   .favorite__img {
     width: 80px;
     height: 80px;
@@ -22,5 +25,14 @@
   }
   100% {
     right: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: -100px;
   }
 }
