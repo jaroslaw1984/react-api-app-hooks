@@ -6,6 +6,7 @@ import About from "../components/pages/about/About";
 import Details from "../components/pages/details/Details";
 import AppState from "../components/context/resources/AppState";
 import NotFound from "../components/pages/notFound/NotFound";
+import Favorite from "../components/favorite/Favorite";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <Route exact path="/details/:name" component={Details} />
             <Route component={NotFound} />
           </Switch>
+          <Favorite />
           <Footer />
         </div>
       </Router>
