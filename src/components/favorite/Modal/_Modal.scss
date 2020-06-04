@@ -46,11 +46,11 @@
     height: calc(100% - 20px);
     overflow-y: auto;
     border-radius: 8px;
-    .modal__elem {
+    .modal__user--elem {
       flex-basis: 20%;
       margin: 10px 12px;
       text-align: center;
-      .modal__img {
+      .modal__user--img {
         border-radius: 50%;
       }
       h5 {
