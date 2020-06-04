@@ -50,8 +50,13 @@ const AppState = (props) => {
     dispatch({ type: SET_CHECKED, to: false });
   };
 
-  // set value to state how many star were pressed
+  // set value to state.rating how many star were pressed
   const handleSetRate = (value) => {
+    dispatch({ type: SET_RATE, payload: value });
+  };
+
+  // update the state.rating provided from the favorite array how many stars the user has
+  const handleSetRateFromModal = (value) => {
     dispatch({ type: SET_RATE, payload: value });
   };
 
@@ -137,6 +142,7 @@ const AppState = (props) => {
         index: state.index,
         rating: state.rating,
         handleSetRate,
+        handleSetRateFromModal,
         handleGetUsers,
         handleChangeGenderMale,
         handleChangeGenderFemale,
