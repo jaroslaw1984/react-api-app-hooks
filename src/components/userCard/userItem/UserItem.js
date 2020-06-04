@@ -50,13 +50,19 @@ const UserItem = () => {
       </Link>
       {/* condition when button will hide and show if index is below first showed person.*/}
       {users[index] !== users[0] && (
-        <button type="button" onClick={handleChangeIndexPrevius}>
+        <button
+          type="button button--state-previus"
+          onClick={handleChangeIndexPrevius}
+        >
           Previus
         </button>
       )}
       {/* Remember to change last index depends how many api will get users from api  */}
       {users[index] !== users[4] && (
-        <button type="button" onClick={handleChangeIndexNext}>
+        <button
+          type="button button--state-next"
+          onClick={handleChangeIndexNext}
+        >
           Next
         </button>
       )}
