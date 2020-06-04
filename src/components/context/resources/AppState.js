@@ -69,9 +69,12 @@ const AppState = (props) => {
     }
   };
 
+  // show modal
   const handleShowModal = () => {
     dispatch({ type: SHOW_MODAL });
   };
+
+  //close modal
   const handleCloseModal = () => {
     dispatch({ type: CLOSE_MODAL });
   };
