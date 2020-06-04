@@ -12,11 +12,11 @@ const Modal = () => {
       <div className="modal__close" onClick={handleCloseModal}></div>
       <div className="modal__containter">
         {favoriteUsers.map((user) => (
-          <div className="modal__elem">
+          <div className="modal__user--elem">
             <img
               src={user.picture.medium}
               alt={user.name.first}
-              className="modal__img"
+              className="modal__user--img"
             />
             <h5>
               {user.name.first} {user.name.last}
@@ -24,7 +24,12 @@ const Modal = () => {
             <Link
               to={`/details/${user.name.first.toLowerCase()}${user.name.last.toLowerCase()}`}
             >
-              <button className="button button--state-more">More</button>
+              <button
+                className="button button--state-more"
+                onClick={handleCloseModal}
+              >
+                More
+              </button>
             </Link>
           </div>
         ))}
