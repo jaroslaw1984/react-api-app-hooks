@@ -4,6 +4,7 @@ import AppContext from "../../context/resources/appContext";
 import RateUser from "../rateUser/RateUser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import IsUserExists from "../isUserExists/IsUserExists";
 
 const UserItem = () => {
   const appContext = useContext(AppContext);
@@ -11,9 +12,11 @@ const UserItem = () => {
   const {
     users,
     index,
+    isUserExists,
     handleChangeIndexNext,
     handleChangeIndexPrevius,
     handlePutToFavorite,
+    handleIsUserExists,
   } = appContext;
 
   const name = users[index].name.first;
@@ -36,7 +39,17 @@ const UserItem = () => {
         className="plus"
         onClick={() => handlePutToFavorite(users[index])}
       />
+      {/* star rating system */}
       <RateUser />
+      {/* show component isUserExists */}
+      {isUserExists && (
+        <IsUserExists
+          click={handleIsUserExists}
+          name={name}
+          last={last}
+          isUserExists={isUserExists}
+        />
+      )}
       {/* It will show page with details of the person */}
       <Link to={`/details/${name.toLowerCase()}${last.toLowerCase()}`}>
         <button className="button button--state-more">More</button>

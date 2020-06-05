@@ -10,6 +10,7 @@ import {
   PUT_FAVORITE,
   SHOW_MODAL,
   CLOSE_MODAL,
+  IS_USER_EXISTS,
 } from "../types";
 
 export default (state, action) => {
@@ -45,6 +46,11 @@ export default (state, action) => {
       return {
         ...state,
         isChecked: action.to,
+      };
+    case IS_USER_EXISTS:
+      return {
+        ...state,
+        isUserExists: action.set,
       };
     case SET_INCREMENT:
       return {

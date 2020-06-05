@@ -13,6 +13,7 @@ import {
   PUT_FAVORITE,
   SHOW_MODAL,
   CLOSE_MODAL,
+  IS_USER_EXISTS,
 } from "../types";
 
 const AppState = (props) => {
@@ -22,6 +23,7 @@ const AppState = (props) => {
     isLoading: false,
     genderMale: true,
     isChecked: true,
+    isUserExists: false,
     modal: false,
     index: 0,
     rating: 0,
@@ -52,6 +54,10 @@ const AppState = (props) => {
   const handleChangeIndexPrevius = () => {
     dispatch({ type: SET_DECREMENT, by: 1 });
     dispatch({ type: SET_RATE, rate: state.rating });
+  };
+
+  const handleIsUserExists = () => {
+    dispatch({ type: IS_USER_EXISTS, set: false });
   };
 
   // changing values to search only male persons
@@ -93,9 +99,7 @@ const AppState = (props) => {
 
       // set the local storage
       localStorage.setItem("users", JSON.stringify(data));
-    } else {
-      alert("Już jest dodany do ulubionych");
-    }
+    } else dispatch({ type: IS_USER_EXISTS, set: true });
   };
 
   // show modal
@@ -170,6 +174,7 @@ const AppState = (props) => {
         isLoading: state.isLoading,
         genderMale: state.genderMale,
         isChecked: state.isChecked,
+        isUserExists: state.isUserExists,
         modal: state.modal,
         index: state.index,
         rating: state.rating,
@@ -180,6 +185,7 @@ const AppState = (props) => {
         handleChangeGenderFemale,
         handleChangeIndexNext,
         handleChangeIndexPrevius,
+        handleIsUserExists,
         handlePutToFavorite,
         handleShowModal,
         handleCloseModal,
