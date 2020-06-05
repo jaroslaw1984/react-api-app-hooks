@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import AppContext from "../context/resources/appContext";
 import Modal from "./Modal/Modal";
 
@@ -6,11 +6,6 @@ const Favorite = () => {
   const appContext = useContext(AppContext);
 
   const { favoriteUsers, handleShowModal, modal } = appContext;
-
-  // add data to local storage from favoriteUsers array
-  useEffect(() => {
-    localStorage.setItem("users", JSON.stringify(favoriteUsers));
-  });
 
   // check if favorite array have any data if so, show favorite panel
   if (favoriteUsers.length === 0) return null;
