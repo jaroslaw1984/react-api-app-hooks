@@ -11,8 +11,6 @@ const UserItem = () => {
   const {
     users,
     index,
-    rating,
-    handleSetRate,
     handleChangeIndexNext,
     handleChangeIndexPrevius,
     handlePutToFavorite,
@@ -38,12 +36,7 @@ const UserItem = () => {
         className="plus"
         onClick={() => handlePutToFavorite(users[index])}
       />
-      <RateUser
-        users={users}
-        index={index}
-        setRating={handleSetRate}
-        rating={rating}
-      />
+      <RateUser />
       {/* It will show page with details of the person */}
       <Link to={`/details/${name.toLowerCase()}${last.toLowerCase()}`}>
         <button className="button button--state-more">More</button>
