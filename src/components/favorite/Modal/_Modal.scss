@@ -9,7 +9,12 @@
   height: 50%;
   min-height: 300px;
   border-radius: 8px;
-  // overflow-x: hidden;
+  &.modal--active {
+    animation: modalActive 1s ease-in;
+  }
+  &.modal--hide {
+    animation: modalHide 1s ease-out;
+  }
   .modal__close {
     position: absolute;
     top: -15px;
@@ -57,5 +62,25 @@
         margin: 10px 0;
       }
     }
+  }
+}
+
+@keyframes modalActive {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes modalHide {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
