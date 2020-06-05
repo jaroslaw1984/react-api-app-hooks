@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 import AppContext from "./appContext";
 import AppReducer from "./AppReducer";
 import {
@@ -25,6 +25,22 @@ const AppState = (props) => {
     modal: false,
     index: 0,
     rating: 0,
+  });
+
+  useEffect(() => {
+    // check if any data is in local storage
+    let dataInLocalStorage = JSON.parse(localStorage.getItem("users"));
+
+    // if it not return undefined
+    if (dataInLocalStorage === null) return undefined;
+    else if (
+      state.favoriteUsers.length === 0 &&
+      dataInLocalStorage.length !== 0
+    )
+      dispatch({
+        type: PUT_FAVORITE,
+        user: dataInLocalStorage,
+      });
   });
 
   // it change and increase index of users array
@@ -60,10 +76,23 @@ const AppState = (props) => {
     dispatch({ type: SET_RATE, payload: value });
   };
 
-  // Add person to favorite bookmark
+  // saving data in the localStorage and favorite panel
   const handlePutToFavorite = (user) => {
     if (!state.favoriteUsers.includes(user)) {
+      // save to favorite person to state
       dispatch({ type: PUT_FAVORITE, user: [...state.favoriteUsers, user] });
+
+      // also save person in local storage
+      let dataFromLS = JSON.parse(localStorage.getItem("users"));
+
+      // if data in local storage is empty assign empty array
+      if (dataFromLS === null) dataFromLS = [];
+
+      // push new object to array
+      const data = [...dataFromLS, user];
+
+      // set the local storage
+      localStorage.setItem("users", JSON.stringify(data));
     } else {
       alert("Już jest dodany do ulubionych");
     }
