@@ -1,13 +1,12 @@
 .favorite {
   position: fixed;
   top: 20%;
-  right: -100px;
   cursor: pointer;
-  &.active {
-    animation: fadeIn 1s both;
+  &.favorite--active {
+    animation: favoriteIn 1s both;
   }
-  &.hide {
-    animation: fadeOut 0.5s backwards;
+  &.favorite--hide {
+    animation: favoriteOut 0.5s both;
   }
   .favorite__img {
     width: 80px;
@@ -19,7 +18,7 @@
   }
 }
 
-@keyframes fadeIn {
+@keyframes favoriteIn {
   0% {
     right: -100px;
   }
@@ -28,7 +27,7 @@
   }
 }
 
-@keyframes fadeOut {
+@keyframes favoriteOut {
   0% {
     right: 0;
   }

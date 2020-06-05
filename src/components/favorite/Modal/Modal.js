@@ -6,13 +6,14 @@ const Modal = () => {
   const appContext = useContext(AppContext);
 
   const {
+    modal,
     handleCloseModal,
     handleSetRateFromModal,
     favoriteUsers,
   } = appContext;
 
   return (
-    <div className="modal">
+    <div className={modal ? "modal modal--active" : "modal modal--hide"}>
       <div className="modal__close" onClick={handleCloseModal}></div>
       <div className="modal__containter">
         {favoriteUsers.map((user) => (

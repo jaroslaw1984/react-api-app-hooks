@@ -11,7 +11,11 @@ const Favorite = () => {
   if (favoriteUsers.length === 0) return null;
   else {
     return (
-      <div className={modal ? "favorite hide" : "favorite active"}>
+      <div
+        className={
+          modal ? "favorite favorite--hide" : "favorite favorite--active"
+        }
+      >
         <div className="favorite__img">
           <img
             src={favoriteUsers.slice(-1)[0].picture.medium}
