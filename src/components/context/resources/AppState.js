@@ -14,6 +14,7 @@ import {
   SHOW_MODAL,
   CLOSE_MODAL,
   IS_USER_EXISTS,
+  DELETE_USER,
 } from "../types";
 
 const AppState = (props) => {
@@ -102,6 +103,24 @@ const AppState = (props) => {
     } else dispatch({ type: IS_USER_EXISTS, set: true });
   };
 
+  // delete favorite person from modal and local storage
+  const handleDeleteUser = (userIndex) => {
+    // delete person from DOM
+    dispatch({ type: DELETE_USER, by: userIndex });
+
+    // delete person from localStorage
+    let dataFromLS = JSON.parse(localStorage.getItem("users"));
+
+    const data = [...dataFromLS];
+
+    data.splice(userIndex, 1);
+
+    localStorage.setItem("users", JSON.stringify(data));
+
+    // if favoriteUsers is empty set state.modal for false because when we add a person again to favoriteUsers modal will open automatically. Modal is set to check is any favoriteUsers array have any item
+    state.favoriteUsers.length === 1 && dispatch({ type: CLOSE_MODAL });
+  };
+
   // show modal
   const handleShowModal = () => {
     dispatch({ type: SHOW_MODAL });
@@ -187,6 +206,7 @@ const AppState = (props) => {
         handleChangeIndexPrevius,
         handleIsUserExists,
         handlePutToFavorite,
+        handleDeleteUser,
         handleShowModal,
         handleCloseModal,
       }}
