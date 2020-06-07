@@ -61,6 +61,7 @@
         // for desktop
         // overflow-y: hidden;
         .modal__delete--user {
+          cursor: pointer;
           &::after {
             content: "";
             position: absolute;

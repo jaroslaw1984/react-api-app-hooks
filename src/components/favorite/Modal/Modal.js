@@ -9,6 +9,7 @@ const Modal = () => {
     modal,
     handleCloseModal,
     handleSetRateFromModal,
+    handleDeleteUser,
     favoriteUsers,
   } = appContext;
 
@@ -16,10 +17,15 @@ const Modal = () => {
     <div className={modal ? "modal modal--active" : "modal modal--hide"}>
       <div className="modal__close" onClick={handleCloseModal}></div>
       <div className="modal__containter">
-        {favoriteUsers.map((user) => (
+        {favoriteUsers.map((user, index) => (
           <div className="modal__user--elem" key={user.cell}>
             <div className="modal__user--img--container">
-              <span className="modal__delete--user"></span>
+              <span
+                className="modal__delete--user"
+                onClick={() => {
+                  handleDeleteUser(index);
+                }}
+              ></span>
               <img
                 src={user.picture.medium}
                 alt={user.name.first}
