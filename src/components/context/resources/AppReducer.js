@@ -11,6 +11,7 @@ import {
   SHOW_MODAL,
   CLOSE_MODAL,
   IS_USER_EXISTS,
+  DELETE_USER,
 } from "../types";
 
 export default (state, action) => {
@@ -74,7 +75,14 @@ export default (state, action) => {
         ...state,
         favoriteUsers: action.user,
       };
+    case DELETE_USER:
+      let newFavoriteUsers = [...state.favoriteUsers];
+      newFavoriteUsers.splice(action.by, 1);
 
+      return {
+        ...state,
+        favoriteUsers: newFavoriteUsers,
+      };
     case SHOW_MODAL:
       return {
         ...state,
