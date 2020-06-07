@@ -18,11 +18,14 @@ const Modal = () => {
       <div className="modal__containter">
         {favoriteUsers.map((user) => (
           <div className="modal__user--elem" key={user.cell}>
-            <img
-              src={user.picture.medium}
-              alt={user.name.first}
-              className="modal__user--img"
-            />
+            <div className="modal__user--img--container">
+              <span className="modal__delete--user"></span>
+              <img
+                src={user.picture.medium}
+                alt={user.name.first}
+                className="modal__user--img"
+              />
+            </div>
             <h5>
               {user.name.first} {user.name.last}
             </h5>

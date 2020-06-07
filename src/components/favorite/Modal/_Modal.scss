@@ -52,14 +52,61 @@
     overflow-y: auto;
     border-radius: 8px;
     .modal__user--elem {
-      flex-basis: 20%;
+      flex-basis: 30%;
       margin: 10px 12px;
       text-align: center;
-      .modal__user--img {
-        border-radius: 50%;
+      .modal__user--img--container {
+        position: relative;
+        height: 80px;
+        // for desktop
+        // overflow-y: hidden;
+        .modal__delete--user {
+          &::after {
+            content: "";
+            position: absolute;
+            top: 10%;
+            left: 80%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            transition: opacity 0.5s ease;
+            // for desktop
+            // top: 50%;
+            // left: 50%;
+            // width: 50px;
+            // height: 50px;
+            // opacity: 0;
+          }
+          &::before {
+            @extend .modal__delete--user::after;
+            content: "\00d7";
+            color: white;
+            font-size: 30px;
+            z-index: 1;
+            line-height: 25px;
+            // for dekstop
+            // font-size: 50px;
+            // z-index: 1;
+            // line-height: 40px;
+          }
+        }
+        .modal__user--img {
+          border-radius: 50%;
+          width: 80px;
+          height: 80px;
+        }
+        &:hover::before,
+        &:hover::after {
+          opacity: 1;
+        }
       }
       h5 {
         margin: 10px 0;
+      }
+      .button--state-more {
+        cursor: pointer;
       }
     }
   }
@@ -70,17 +117,17 @@
     opacity: 0;
   }
 
-  100% {
+  50% {
     opacity: 1;
   }
 }
 
 @keyframes modalHide {
   0% {
-    opacity: 0;
+    opacity: 1;
   }
 
   100% {
-    opacity: 1;
+    opacity: 0;
   }
 }

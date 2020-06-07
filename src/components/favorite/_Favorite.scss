@@ -1,9 +1,9 @@
 .favorite {
   position: fixed;
   top: 20%;
-  cursor: pointer;
   &.favorite--active {
     animation: favoriteIn 1s both;
+    cursor: pointer;
   }
   &.favorite--hide {
     animation: favoriteOut 0.5s both;
