@@ -12,7 +12,7 @@
       &:checked + .label {
         font-weight: 700;
         &::before {
-          margin-right: 15px;
+          margin-right: 20px;
           border: 15px solid $search__panel__label__radio-btn--color--checked;
         }
       }
