@@ -26,7 +26,7 @@ const UserItem = () => {
   // const user = users[index];
 
   return (
-    <div className="card__elem">
+    <div className="card__userItem">
       <img src={picture} alt={name} />
       <h4>Hey, my name is</h4>
       <h2>
