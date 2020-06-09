@@ -1,8 +1,10 @@
-.plus {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 30px;
-  color: #fff;
-  cursor: pointer;
+.card__userItem {
+  &__plus {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+  }
 }

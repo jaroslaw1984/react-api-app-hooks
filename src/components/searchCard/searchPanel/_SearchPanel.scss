@@ -1,0 +1,56 @@
+.search__panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .list__item {
+    position: relative;
+    list-style-type: none;
+    .radio-btn {
+      position: absolute;
+      opacity: 0;
+      visibility: hidden;
+      &:checked + .label {
+        font-weight: 700;
+        &::before {
+          margin-right: 15px;
+          border: 15px solid $search__panel__label__radio-btn--color--checked;
+        }
+      }
+    }
+
+    .label {
+      display: flex;
+      align-items: center;
+      padding: 15px 0;
+      color: $search__panel__label--color;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.25s linear;
+      &::before {
+        display: inline-block;
+        content: "";
+        height: 30px;
+        width: 30px;
+        margin-right: 10px;
+        border: 5px solid $search__panel__label--color;
+        border-radius: 50%;
+        transition: all 0.25s linear;
+      }
+    }
+  }
+
+  &__button {
+    padding: 15px;
+  }
+
+  &__info p {
+    padding: 10px 0 30px;
+    color: $search__panel__info--fontColor;
+    & > a {
+      font-weight: 700;
+      text-decoration: none;
+      color: $search__panel__info--LinkColor;
+    }
+  }
+}
