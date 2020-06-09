@@ -1,6 +1,29 @@
 /* ---- Global colors ---- */
 
-$body: #405e80;
+$body: linear-gradient(to right bottom, #304761, #547499);
+$user_card--background: #304863;
+$search__panel--background: #304863;
+$search__panel__input--fontColor: #f0f0f0;
+$search__panel__label--color: #f0f0f0;
+$search__panel__label__radio-btn--color--checked: #fc5185;
+$search__panel__button--backGroundColor: #fc5185;
+$search__panel__button--fontColor: #f0f0f0;
+$search__panel__info--fontColor: #f0f0f0;
+$search__panel__info--LinkColor: #43dde6;
+$search__header--color: #43dde6;
+
+/* ---- Global button ---- */
+
+.button {
+  width: 100px;
+  height: 35px;
+  border: none;
+  border-radius: 20px;
+  background-color: $search__panel__button--backGroundColor;
+  color: $search__panel__button--fontColor;
+  font-weight: 700;
+  cursor: pointer;
+}
 
 /* ---- Set fonts ---- */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;700&display=swap");
