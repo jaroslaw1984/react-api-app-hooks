@@ -36,7 +36,7 @@ const UserItem = () => {
 
       <FontAwesomeIcon
         icon={faPlus}
-        className="plus"
+        className="card__userItem__plus"
         onClick={() => handlePutToFavorite(users[index])}
       />
       {/* star rating system */}
