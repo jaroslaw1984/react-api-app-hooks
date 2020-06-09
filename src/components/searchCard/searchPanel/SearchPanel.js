@@ -14,22 +14,32 @@ const SearchPanel = () => {
 
   return (
     <div className="search__panel">
-      <div className="search__panel__input">
-        <label htmlFor="male">Male</label>
-        <input
-          type="radio"
-          id="male"
-          checked={isChecked}
-          onChange={handleChangeGenderMale}
-        />
-        <label htmlFor="female">Female</label>
-        <input
-          type="radio"
-          id="female"
-          checked={!isChecked}
-          onChange={handleChangeGenderFemale}
-        />
-      </div>
+      <ul>
+        <li className="list__item">
+          <input
+            type="radio"
+            id="male"
+            checked={isChecked}
+            onChange={handleChangeGenderMale}
+            className="radio-btn"
+          />
+          <label htmlFor="male" className="label">
+            Male
+          </label>
+        </li>
+        <li className="list__item">
+          <input
+            type="radio"
+            id="female"
+            checked={!isChecked}
+            onChange={handleChangeGenderFemale}
+            className="radio-btn"
+          />
+          <label htmlFor="female" className="label">
+            Female
+          </label>
+        </li>
+      </ul>
       <div className="search__panel__button">
         <button className="button" onClick={handleGetUsers}>
           Search
