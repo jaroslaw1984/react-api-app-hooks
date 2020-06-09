@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import AppContexct from "../../context/resources/appContext";
 
@@ -13,7 +13,7 @@ const SearchPanel = () => {
   } = appContext;
 
   return (
-    <Fragment>
+    <div className="search__panel">
       <label htmlFor="male">Male</label>
       <input
         type="radio"
@@ -32,7 +32,7 @@ const SearchPanel = () => {
       <p>
         Tell me more about this <Link to="/about">Application</Link>
       </p>
-    </Fragment>
+    </div>
   );
 };
 

@@ -1,13 +1,11 @@
-import React, { Fragment } from "react";
+import React from "react";
 import SearchPanel from "./searchPanel/SearchPanel";
 
-const SearchCard = () => {
-  return (
-    <Fragment>
-      <h2 className="header">Find your other half</h2>
-      <SearchPanel />
-    </Fragment>
-  );
-};
+const SearchCard = () => (
+  <div className="search__card">
+    <h2 className="search__header">Find your other half</h2>
+    <SearchPanel />
+  </div>
+);
 
 export default SearchCard;

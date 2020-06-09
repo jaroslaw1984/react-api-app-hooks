@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import AppContext from "../../context/resources/appContext";
 import RateUser from "../rateUser/RateUser";
@@ -26,7 +26,7 @@ const UserItem = () => {
   // const user = users[index];
 
   return (
-    <Fragment>
+    <div className="card__elem">
       <img src={picture} alt={name} />
       <h4>Hey, my name is</h4>
       <h2>
@@ -72,7 +72,7 @@ const UserItem = () => {
           Next
         </button>
       )}
-    </Fragment>
+    </div>
   );
 };
 
