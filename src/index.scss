@@ -1,4 +1,9 @@
+@import "./config/config";
 @import "./app/App";
+@import "./components/searchCard/SearchCard";
+@import "./components/searchCard/searchPanel/SearchPanel";
+@import "./components/userCard/UserCard";
+@import "./components/userCard/userItem/UserItem";
 @import "./components/userCard/rateUser/RateUser";
 @import "./components/userCard/userItem/UserItem";
 @import "./components/favorite/Favorite";
