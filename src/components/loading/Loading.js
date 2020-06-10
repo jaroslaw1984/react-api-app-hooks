@@ -5,11 +5,11 @@ const Loading = () => (
   <Fragment>
     <img
       src={loading}
-      alt="Loading..."
+      alt=""
       className="spinner"
       style={{
-        width: "200px",
-        height: "200px",
+        width: "150px",
+        height: "150px",
         margin: "0 auto",
         display: "block",
       }}
