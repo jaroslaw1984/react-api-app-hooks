@@ -11,3 +11,4 @@ export const SHOW_MODAL = "SHOW_MODAL";
 export const CLOSE_MODAL = "CLOSE_MODAL";
 export const IS_USER_EXISTS = "IS_USER_EXISTS";
 export const DELETE_USER = "DELETE_USER";
+export const SET_HEIGHT = "SET_HEIGHT";

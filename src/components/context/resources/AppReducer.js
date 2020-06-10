@@ -12,6 +12,7 @@ import {
   CLOSE_MODAL,
   IS_USER_EXISTS,
   DELETE_USER,
+  SET_HEIGHT,
 } from "../types";
 
 export default (state, action) => {
@@ -87,6 +88,11 @@ export default (state, action) => {
       return {
         ...state,
         modal: true,
+      };
+    case SET_HEIGHT:
+      return {
+        ...state,
+        isHeight: true,
       };
     case CLOSE_MODAL:
       return {

@@ -15,6 +15,7 @@ import {
   CLOSE_MODAL,
   IS_USER_EXISTS,
   DELETE_USER,
+  SET_HEIGHT,
 } from "../types";
 
 const AppState = (props) => {
@@ -26,6 +27,7 @@ const AppState = (props) => {
     isChecked: true,
     isUserExists: false,
     modal: false,
+    isHeight: false,
     index: 0,
     rating: 0,
   });
@@ -135,7 +137,12 @@ const AppState = (props) => {
   const handleGetUsers = () => {
     // clear array users data when searching diffrent the gender and set isLoading for ture
     dispatch({ type: SET_USERS });
-    dispatch({ type: SET_LOADING });
+    // set loading state from reducer
+    setTimeout(() => {
+      dispatch({ type: SET_LOADING });
+    }, 1000);
+    // set height state from reducer
+    dispatch({ type: SET_HEIGHT });
 
     // how many users will be fetched from api
     const numberFetchedUsers = 5;
@@ -182,7 +189,7 @@ const AppState = (props) => {
       } catch (error) {
         throw error(error);
       }
-    }, 2000);
+    }, 3000);
   };
 
   return (
@@ -195,6 +202,7 @@ const AppState = (props) => {
         isChecked: state.isChecked,
         isUserExists: state.isUserExists,
         modal: state.modal,
+        isHeight: state.isHeight,
         index: state.index,
         rating: state.rating,
         handleSetRate,
