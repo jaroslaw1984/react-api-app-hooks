@@ -34,6 +34,14 @@ $footer--linkColor: #43dde6;
   color: $search__panel__button--fontColor;
   font-weight: 700;
   cursor: pointer;
+  // remove outline from Firefox
+  & ::-moz-focus-inner {
+    border: 0;
+  }
+  // remove outline from chrome
+  &:focus {
+    outline: none;
+  }
 }
 
 /* ---- Set fonts ---- */
