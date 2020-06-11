@@ -10,6 +10,8 @@
   &__nav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
 
     &__img {
       border-radius: 50%;
@@ -24,31 +26,31 @@
       }
     }
 
-    &__next,
-    &__previus {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border: none;
-      // remove outline from Firefox
+    &__next {
       & ::-moz-focus-inner {
         border: 0;
       }
-      .button--next,
-      .button--previus {
+      .button--next {
         border: none;
         background: none;
         font-size: 100px;
         color: $cardItemNavBtn--color;
-        transition: color 0.2s ease;
+        transition: all 0.2s ease;
         cursor: pointer;
         // remove outline from chrome
         &:focus {
           outline: none;
+          color: $cardItemNavBtnHover--color;
         }
         &:hover {
           color: $cardItemNavBtnHover--color;
         }
+      }
+    }
+    &__previus {
+      @extend .card__item__nav__next;
+      .button--previus {
+        @extend .button--next;
       }
     }
   }
@@ -59,7 +61,8 @@
 
   & h4 {
     color: $cardItemH4--FontColor;
-    margin: 10px 0;
+    margin: 10px 5px;
+    text-align: center;
   }
 
   & .plus {
