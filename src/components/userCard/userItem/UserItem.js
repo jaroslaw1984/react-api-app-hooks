@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import AppContext from "../../context/resources/appContext";
 import RateUser from "../rateUser/RateUser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import IsUserExists from "../isUserExists/IsUserExists";
 
 const UserItem = () => {
@@ -23,11 +23,42 @@ const UserItem = () => {
   const last = users[index].name.last;
   const picture = users[index].picture.large;
   const msg = users[index].msg.text;
-  // const user = users[index];
+
+  // Navigate icons
+  const next = ">";
+  const previus = "<";
 
   return (
-    <div className="card__userItem">
-      <img src={picture} alt={name} />
+    <div className="card__item">
+      <div className="card__item__nav">
+        <div className="card__item__nav__previus">
+          {/* button will hide and show if index is below first showed person.*/}
+          {users[index] !== users[0] && (
+            <button
+              className="button--previus"
+              onClick={handleChangeIndexPrevius}
+            >
+              {previus}
+            </button>
+          )}
+        </div>
+
+        <div className="card__item__nav__img">
+          <div>
+            <img src={picture} alt={name} />
+          </div>
+        </div>
+
+        <div className="card__item__nav__next">
+          {/* Remember to change last index depends how many api will get users from api  */}
+          {users[index] !== users[4] && (
+            <button className="button--next" onClick={handleChangeIndexNext}>
+              {next}
+            </button>
+          )}
+        </div>
+      </div>
+
       <h4>Hey, my name is</h4>
       <h2>
         {name} {last}
@@ -35,12 +66,14 @@ const UserItem = () => {
       <h4>{msg}</h4>
 
       <FontAwesomeIcon
-        icon={faPlus}
-        className="card__userItem__plus"
+        icon={faUserPlus}
+        className="plus"
         onClick={() => handlePutToFavorite(users[index])}
       />
+
       {/* star rating system */}
       <RateUser />
+
       {/* show component isUserExists */}
       {isUserExists && (
         <IsUserExists
@@ -50,28 +83,11 @@ const UserItem = () => {
           isUserExists={isUserExists}
         />
       )}
+
       {/* It will show page with details of the person */}
       <Link to={`/details/${name.toLowerCase()}${last.toLowerCase()}`}>
-        <button className="button button--state-more">More</button>
+        <button className="button button--more">More</button>
       </Link>
-      {/* condition when button will hide and show if index is below first showed person.*/}
-      {users[index] !== users[0] && (
-        <button
-          className="button button--state-previus"
-          onClick={handleChangeIndexPrevius}
-        >
-          Previus
-        </button>
-      )}
-      {/* Remember to change last index depends how many api will get users from api  */}
-      {users[index] !== users[4] && (
-        <button
-          className="button button--state-next"
-          onClick={handleChangeIndexNext}
-        >
-          Next
-        </button>
-      )}
     </div>
   );
 };
