@@ -1,7 +1,15 @@
 /* ---- Global colors ---- */
 
 $body: linear-gradient(to right bottom, #476280, #5c83af);
-$user_card--background: #304863;
+$cardItem--background: #304863;
+$cardItemDivIcon--color: #fc5185;
+$cardItemPlusIcon--color: #fc5185;
+$cardItemImg--backgroundColor: #f0f0f0;
+$cardItemImgBorder--color: #f0f0f0;
+$cardItemH2--FontColor: #43dde6;
+$cardItemH4--FontColor: #f0f0f0;
+$cardItemNavBtn--color: #fc5185;
+$cardItemNavBtnHover--color: lighten(#fc5185, 15%);
 $search__panel--background: #304863;
 $search__panel__input--fontColor: #f0f0f0;
 $search__panel__label--color: #f0f0f0;
@@ -11,7 +19,7 @@ $search__panel__button--fontColor: #f0f0f0;
 $search__panel__info--fontColor: #f0f0f0;
 $search__panel__info--LinkColor: #43dde6;
 $search__header--color: #43dde6;
-$footer--backgroundColor: #304863;
+$footer--backgroundColor: #1f2c3a;
 $footer--fontColor: #f0f0f0;
 $footer--linkColor: #43dde6;
 
