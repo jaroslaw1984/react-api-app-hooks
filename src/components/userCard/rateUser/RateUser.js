@@ -45,7 +45,7 @@ const RateUser = () => {
               />
               <FontAwesomeIcon
                 icon={faStar}
-                className="star"
+                className="stars"
                 color={value <= rating ? "#ffc107" : "#e4e5e9"}
               />
             </label>
