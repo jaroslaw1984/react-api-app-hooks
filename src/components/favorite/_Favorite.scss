@@ -1,6 +1,6 @@
 .favorite {
   position: fixed;
-  top: 20%;
+  top: 70%;
   &.favorite--active {
     animation: favoriteIn 1s both;
     cursor: pointer;
@@ -8,13 +8,32 @@
   &.favorite--hide {
     animation: favoriteOut 0.5s both;
   }
-  .favorite__img {
-    width: 80px;
-    height: 80px;
-    border: 5px double #fff;
+  &__img {
+    width: 55px;
+    height: 55px;
+    border: 5px double $favoriteBorder--color;
     border-radius: 66px;
-    background: #fff;
+    background: $favoriteBorder--color;
     overflow: hidden;
+    & > img {
+      width: 55px;
+      height: 55px;
+    }
+  }
+  &__coutner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: $favoriteCounter--backgroundColor;
+    text-align: center;
+    & > span {
+      color: $favoriteCounter--fontColor;
+      font-weight: 700;
+      line-height: 20px;
+    }
   }
 }
 
@@ -23,13 +42,13 @@
     right: -100px;
   }
   100% {
-    right: 0;
+    right: 5px;
   }
 }
 
 @keyframes favoriteOut {
   0% {
-    right: 0;
+    right: 5px;
   }
   100% {
     right: -100px;
