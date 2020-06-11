@@ -14,13 +14,15 @@ const IsUserExists = ({ click, name, last, isUserExists }) => {
         {name} {last}
       </h3>
       <p>already exists in favorite bookmark</p>
-      <button onClick={click}>OK</button>
+      <button onClick={click} className="button">
+        OK
+      </button>
     </div>
   );
 };
 
 IsUserExists.propTypes = {
-  click: PropTypes.bool.isRequired,
+  click: PropTypes.func.isRequired,
   isUserExists: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
   last: PropTypes.string.isRequired,
