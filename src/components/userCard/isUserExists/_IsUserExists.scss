@@ -12,11 +12,9 @@
   align-items: center;
   border-radius: 5px;
   &.attention--active {
-    animation: attentionActive 1s ease;
+    animation: attentionActive 0.7s ease;
   }
-  &.attention--hide {
-    animation: attentionHide 1s both;
-  }
+
   & h3 {
     margin-bottom: 15px;
   }
@@ -31,13 +29,5 @@
   }
   100% {
     opacity: 1;
-  }
-}
-@keyframes attentionHide {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
   }
 }
