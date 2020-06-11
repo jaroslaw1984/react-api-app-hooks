@@ -23,7 +23,9 @@ const Favorite = () => {
             onClick={handleShowModal}
           />
         </div>
-        <span className="favorite__coutner">{favoriteUsers.length}</span>
+        <div className="favorite__coutner">
+          <span>{favoriteUsers.length}</span>
+        </div>
         {/* initial state condition, show modal if it is true*/}
         {modal && <Modal />}
       </div>
