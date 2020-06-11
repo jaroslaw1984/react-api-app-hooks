@@ -1,15 +1,17 @@
 .card {
-  padding-top: 10px;
+  width: 100%;
+  max-width: 1000px;
   &--active {
+    margin: 15px auto;
     animation: setHeight 1s ease;
   }
 }
 
 @keyframes setHeight {
-  0% {
+  from {
     height: 0;
   }
-  100% {
-    height: 300px;
+  to {
+    height: 430px;
   }
 }
