@@ -51,7 +51,6 @@ const RateUser = () => {
             </label>
           );
         })}
-        <span className="rating__number">{rating}</span>
       </div>
     </Fragment>
   );
