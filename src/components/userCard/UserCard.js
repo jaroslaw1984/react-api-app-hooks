@@ -10,8 +10,8 @@ const UserCard = () => {
 
   return (
     <div
-      className={isHeight ? "card--active" : "card"}
-      style={isHeight ? { height: "300px" } : { height: 0 }}
+      className={isHeight ? "card card--active" : "card"}
+      style={isHeight ? { height: "430px" } : { height: 0 }}
     >
       {/* <div className="card"> */}
       {isLoading ? <Loading /> : users.length > 0 && <UserItem />}
