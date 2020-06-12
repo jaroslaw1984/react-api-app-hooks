@@ -92,7 +92,7 @@ export default (state, action) => {
     case SET_HEIGHT:
       return {
         ...state,
-        isHeight: true,
+        isHeight: action.to,
       };
     case CLOSE_MODAL:
       return {

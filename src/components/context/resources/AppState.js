@@ -59,6 +59,7 @@ const AppState = (props) => {
     dispatch({ type: SET_RATE, rate: state.rating });
   };
 
+  // function check is person already has been added fovorite bookmark
   const handleIsUserExists = () => {
     dispatch({ type: IS_USER_EXISTS, set: false });
   };
@@ -137,12 +138,19 @@ const AppState = (props) => {
   const handleGetUsers = () => {
     // clear array users data when searching diffrent the gender and set isLoading for ture
     dispatch({ type: SET_USERS });
+
     // set loading state from reducer
     setTimeout(() => {
       dispatch({ type: SET_LOADING });
     }, 1000);
-    // set height state from reducer
-    dispatch({ type: SET_HEIGHT });
+
+    // set height state from reducer to active animation
+    dispatch({ type: SET_HEIGHT, to: true });
+
+    // set height state to false to disactive animation
+    setTimeout(() => {
+      dispatch({ type: SET_HEIGHT, to: false });
+    }, 1000);
 
     // how many users will be fetched from api
     const numberFetchedUsers = 5;
