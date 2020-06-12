@@ -1,9 +1,10 @@
 .card {
   width: 100%;
   max-width: 1000px;
+  margin: 15px auto;
   &--active {
+    height: 450px;
     margin: 15px auto;
-    animation: setHeight 1s ease;
   }
 }
 
@@ -12,6 +13,6 @@
     height: 0;
   }
   to {
-    height: 430px;
+    height: 450px;
   }
 }
