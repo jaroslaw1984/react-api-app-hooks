@@ -1,6 +1,7 @@
 /* ---- Global colors ---- */
 
 $body: linear-gradient(to right bottom, #476280, #5c83af);
+
 $cardItem--background: #304863;
 $cardItemDivIcon--color: #fc5185;
 $cardItemPlusIcon--color: #fc5185;
@@ -10,9 +11,11 @@ $cardItemH2--FontColor: #43dde6;
 $cardItemH4--FontColor: #f0f0f0;
 $cardItemNavBtn--color: #fc5185;
 $cardItemNavBtnHover--color: lighten(#fc5185, 15%);
+
 $favoriteBorder--color: #f0f0f0;
 $favoriteCounter--backgroundColor: #fc5185;
 $favoriteCounter--fontColor: #f0f0f0;
+
 $modal--backgroundColor: #f0f0f0;
 $modalDeleteBtn--backgroundColor: rgba(0, 0, 0, 0.3);
 $modalCloseBtn--backgroundColor: rgb(71, 71, 71);
@@ -26,6 +29,14 @@ $search__panel__button--fontColor: #f0f0f0;
 $search__panel__info--fontColor: #f0f0f0;
 $search__panel__info--LinkColor: #43dde6;
 $search__header--color: #43dde6;
+
+$derails--bacgroundColor: #304863;
+$details__not__exists__h1--color: #f0f0f0;
+$details__name--color: #43dde6;
+$details__tag--color: #f0f0f0;
+$details__img__border--color: #f0f0f0;
+$details__plus--color: #f0f0f0;
+
 $footer--backgroundColor: #1f2c3a;
 $footer--fontColor: #f0f0f0;
 $footer--linkColor: #43dde6;
