@@ -13,7 +13,6 @@ const UserCard = () => {
       className={isHeight ? "card card--active" : "card"}
       style={isHeight ? { height: "430px" } : { height: 0 }}
     >
-      {/* <div className="card"> */}
       {isLoading ? <Loading /> : users.length > 0 && <UserItem />}
     </div>
   );
