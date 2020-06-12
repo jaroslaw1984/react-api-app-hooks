@@ -10,12 +10,10 @@ body {
   background: $body;
   background-repeat: no-repeat;
   font-family: "Ubuntu", sans-serif;
-  min-height: 100vh;
 }
 
 .container {
   min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  row-gap: 15px;
 }
