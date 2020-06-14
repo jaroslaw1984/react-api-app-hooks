@@ -3,13 +3,7 @@ import PropTypes from "prop-types";
 
 const IsUserExists = ({ click, name, last, isUserExists }) => {
   return (
-    <div
-      className={
-        isUserExists
-          ? "attention attention--active"
-          : "attention attention--hide"
-      }
-    >
+    <div className={isUserExists && "attention attention--active"}>
       <h3>
         {name} {last}
       </h3>
