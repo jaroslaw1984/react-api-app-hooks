@@ -5,6 +5,7 @@ import AppContect from "../../context/resources/appContext";
 import RateUser from "../../userCard/rateUser/RateUser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import IsUserExists from "../../userCard/isUserExists/IsUserExists";
 
 const Details = ({ match }) => {
   const appContext = useContext(AppContect);
@@ -12,10 +13,10 @@ const Details = ({ match }) => {
   const {
     users,
     index,
-    rating,
+    isUserExists,
     favoriteUsers,
-    handleSetRate,
     handlePutToFavorite,
+    handleIsUserExists,
   } = appContext;
 
   // find user in users array with specific condition
@@ -69,6 +70,7 @@ const Details = ({ match }) => {
               <button className="button button__more--back">Back</button>
             </Link>
           </div>
+
           <div className="details__person">
             <div className="details__person__img">
               <img
@@ -78,6 +80,7 @@ const Details = ({ match }) => {
                 alt={user === undefined ? fav.name.first : user.name.first}
               />
             </div>
+
             <div className="details__person__name">
               <h1>
                 {user === undefined ? fav.name.first : user.name.first}{" "}
@@ -85,19 +88,28 @@ const Details = ({ match }) => {
               </h1>
             </div>
           </div>
+
           <div className="details__nav nav">
             <FontAwesomeIcon
               icon={faUserPlus}
               className="plus"
-              onClick={() => handlePutToFavorite(users[index])}
+              onClick={() =>
+                users.length !== 0
+                  ? handlePutToFavorite(users[index])
+                  : handlePutToFavorite(favoriteUsers[index])
+              }
             />
-            <RateUser
-              users={users}
-              index={index}
-              setRating={handleSetRate}
-              className="stars"
-              rating={rating}
-            />
+
+            {isUserExists && (
+              <IsUserExists
+                click={handleIsUserExists}
+                name={fav.name.first}
+                last={fav.name.last}
+                isUserExists={isUserExists}
+              />
+            )}
+
+            <RateUser className="stars" />
           </div>
         </div>
       </div>
