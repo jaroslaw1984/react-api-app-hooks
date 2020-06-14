@@ -86,8 +86,9 @@ const AppState = (props) => {
     dispatch({ type: SET_RATE, payload: value });
   };
 
-  // saving data in the localStorage and favorite panel
+  // saving data in the localStorage and favorite array
   const handlePutToFavorite = (user) => {
+    // check person is already exists in favorite array
     if (!state.favoriteUsers.includes(user)) {
       // save to favorite person to state
       dispatch({ type: PUT_FAVORITE, user: [...state.favoriteUsers, user] });
