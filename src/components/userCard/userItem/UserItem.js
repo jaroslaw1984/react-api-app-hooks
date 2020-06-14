@@ -71,9 +71,6 @@ const UserItem = () => {
         onClick={() => handlePutToFavorite(users[index])}
       />
 
-      {/* star rating system */}
-      <RateUser />
-
       {/* show component isUserExists */}
       {isUserExists && (
         <IsUserExists
@@ -83,6 +80,9 @@ const UserItem = () => {
           isUserExists={isUserExists}
         />
       )}
+
+      {/* star rating system */}
+      <RateUser />
 
       {/* It will show page with details of the person */}
       <Link to={`/details/${name.toLowerCase()}${last.toLowerCase()}`}>
