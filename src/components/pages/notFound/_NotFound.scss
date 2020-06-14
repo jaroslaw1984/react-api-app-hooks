@@ -1,0 +1,12 @@
+.container__not__found {
+  text-align: center;
+  color: $not__found--color;
+  margin: 30px;
+  & > p {
+    margin-top: 20px;
+  }
+}
+
+.button__not__found {
+  margin-left: 30px;
+}
