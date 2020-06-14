@@ -1,0 +1,48 @@
+.container__about {
+  header {
+    h1 {
+      margin: 40px 0 10px;
+      text-align: center;
+      color: $about__header__h1--color;
+    }
+    & p {
+      text-align: center;
+      color: $about__p--color;
+      font-weight: 700;
+      padding-bottom: 20px;
+    }
+  }
+
+  main {
+    article {
+      padding: 0 10px;
+      p:nth-child(1) {
+        padding: 0 0 20px;
+      }
+      p {
+        color: $about__p--color;
+        letter-spacing: 1px;
+        line-height: 22px;
+        padding: 10px 20px;
+        margin-bottom: 10px;
+      }
+      h3 {
+        color: $about__h3--color;
+        font-size: 22px;
+        margin: 20px 0;
+      }
+      h4 {
+        color: $about__h4--color;
+        padding-left: 10px;
+      }
+    }
+    & .link {
+      text-decoration: none;
+      font-weight: 700;
+      color: $about__link--color;
+    }
+    & .button__about--back {
+      margin: 40px;
+    }
+  }
+}
