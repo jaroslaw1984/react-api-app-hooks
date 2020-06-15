@@ -47,6 +47,9 @@
   &__info p {
     padding: 10px 0 30px;
     color: $search__panel__info--fontColor;
+    @include medium {
+      font-size: 20px;
+    }
     & > a {
       font-weight: 700;
       text-decoration: none;
