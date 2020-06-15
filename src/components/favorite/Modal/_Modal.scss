@@ -53,6 +53,9 @@
       flex-basis: 30%;
       margin: 10px 12px;
       text-align: center;
+      @include medium {
+        flex-basis: 40%;
+      }
       .modal__user--img--container {
         position: relative;
         height: 80px;
@@ -71,6 +74,9 @@
             background-color: $modalDeleteBtn--backgroundColor;
             border-radius: 50%;
             transition: opacity 0.5s ease;
+            @include medium {
+              left: 68%;
+            }
             // for desktop
             // top: 50%;
             // left: 50%;
@@ -105,6 +111,11 @@
       }
       .button--state-more {
         cursor: pointer;
+        @include medium {
+          font-size: 12px;
+          width: 90px;
+          height: 28px;
+        }
       }
     }
   }

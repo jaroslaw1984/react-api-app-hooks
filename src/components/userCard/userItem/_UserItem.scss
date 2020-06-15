@@ -5,6 +5,9 @@
   align-items: center;
   height: 450px;
   background-color: $cardItem--background;
+  @include medium {
+    height: 470px;
+  }
   // desktop
   // border-radius: 20px;
 
@@ -24,6 +27,16 @@
         border: 2px solid $cardItemImgBorder--color;
         border-radius: 50%;
         overflow: hidden;
+        @include medium {
+          width: 140px;
+          height: 140px;
+        }
+        & img {
+          @include medium {
+            width: 140px;
+            height: 140px;
+          }
+        }
       }
     }
 
@@ -38,6 +51,9 @@
         color: $cardItemNavBtn--color;
         transition: all 0.2s ease;
         cursor: pointer;
+        @include medium {
+          font-size: 130px;
+        }
         // remove outline from chrome
         &:focus {
           outline: none;
@@ -58,12 +74,18 @@
 
   & h2 {
     color: $cardItemH2--FontColor;
+    @include medium {
+      font-size: 30px;
+    }
   }
 
   & h4 {
     color: $cardItemH4--FontColor;
     margin: 10px 5px;
     text-align: center;
+    @include medium {
+      font-size: 20px;
+    }
   }
 
   & .plus {
@@ -74,6 +96,11 @@
     color: $cardItemPlusIcon--color;
     cursor: pointer;
     transition: all 0.5s ease;
+    @include medium {
+      top: 30px;
+      right: 30px;
+      font-size: 40px;
+    }
     &:hover {
       color: white;
     }

@@ -5,6 +5,9 @@
   &--active {
     height: 450px;
     margin: 15px auto;
+    @include medium {
+      height: 470px;
+    }
   }
 }
 
@@ -14,5 +17,8 @@
   }
   to {
     height: 450px;
+    @include medium {
+      height: 470px;
+    }
   }
 }
