@@ -93,8 +93,13 @@ $desktop: 992px;
   @include medium {
     font-size: 15px;
   }
+  @include desktop() {
+    &:hover {
+      background-color: lighten(#fc5185, 5%);
+    }
+  }
   // remove outline from Firefox
-  & ::-moz-focus-inner {
+  &::-moz-focus-inner {
     border: 0;
   }
   // remove outline from chrome
