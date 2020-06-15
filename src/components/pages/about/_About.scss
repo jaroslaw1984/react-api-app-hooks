@@ -1,4 +1,9 @@
 .container__about {
+  @include large {
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: left;
+  }
   header {
     h1 {
       margin: 40px 0 10px;
@@ -62,6 +67,9 @@
     }
     & .button__about--back {
       margin: 40px;
+      @include large {
+        margin: 40px 0;
+      }
     }
   }
 }
