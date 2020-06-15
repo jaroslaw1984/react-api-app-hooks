@@ -13,6 +13,7 @@ const UserItem = () => {
     users,
     index,
     isUserExists,
+    numberFetchedUsers,
     handleChangeIndexNext,
     handleChangeIndexPrevius,
     handlePutToFavorite,
@@ -51,7 +52,7 @@ const UserItem = () => {
 
         <div className="card__item__nav__next">
           {/* Remember to change last index depends how many api will get users from api  */}
-          {users[index] !== users[4] && (
+          {users[index] !== users[numberFetchedUsers - 1] && (
             <button className="button--next" onClick={handleChangeIndexNext}>
               {next}
             </button>
