@@ -49,6 +49,36 @@ $footer--backgroundColor: #1f2c3a;
 $footer--fontColor: #f0f0f0;
 $footer--linkColor: #43dde6;
 
+// ------ mixin for responsive breakpoints -----
+
+// tablets > 599px
+$medium: 599px;
+
+@mixin medium {
+  @media (min-width: #{$medium}) {
+    @content;
+  }
+}
+
+// desktop > 799px
+$large: 799px;
+
+@mixin large {
+  @media (min-width: #{$large}) {
+    @content;
+  }
+}
+
+// desktop > 992px
+$desktop: 992px;
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+// ---------------------------------------------
+
 /* ---- Global button ---- */
 
 .button {
@@ -60,6 +90,9 @@ $footer--linkColor: #43dde6;
   color: $search__panel__button--fontColor;
   font-weight: 700;
   cursor: pointer;
+  @include medium {
+    font-size: 15px;
+  }
   // remove outline from Firefox
   & ::-moz-focus-inner {
     border: 0;
