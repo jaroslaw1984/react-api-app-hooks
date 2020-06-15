@@ -30,6 +30,7 @@ const AppState = (props) => {
     isHeight: false,
     index: 0,
     rating: 0,
+    numberFetchedUsers: 10,
   });
 
   useEffect(() => {
@@ -153,9 +154,6 @@ const AppState = (props) => {
       dispatch({ type: SET_HEIGHT, to: false });
     }, 1000);
 
-    // how many users will be fetched from api
-    const numberFetchedUsers = 5;
-
     // objects that hold messages that will be add to fetched data
     const randomText = [
       { text: "and I would love to meet you" },
@@ -172,9 +170,9 @@ const AppState = (props) => {
     setTimeout(() => {
       try {
         fetch(
-          `https://randomuser.me/api/?results=${numberFetchedUsers}&gender=${
-            state.genderMale ? "male" : "female"
-          }`
+          `https://randomuser.me/api/?results=${
+            state.numberFetchedUsers
+          }&gender=${state.genderMale ? "male" : "female"}`
         )
           .then((respond) => respond.json())
           .then((data) => {
@@ -182,7 +180,7 @@ const AppState = (props) => {
 
             //on fetched data put one message to each single user
             users.forEach((user) => {
-              for (let i = 0; i < numberFetchedUsers; i++) {
+              for (let i = 0; i < state.numberFetchedUsers; i++) {
                 const msgIndex = Math.floor(Math.random() * randomText.length);
                 user.msg = randomText[msgIndex];
                 user.rating = 0;
@@ -214,6 +212,7 @@ const AppState = (props) => {
         isHeight: state.isHeight,
         index: state.index,
         rating: state.rating,
+        numberFetchedUsers: state.numberFetchedUsers,
         handleSetRate,
         handleSetRateFromModal,
         handleGetUsers,
