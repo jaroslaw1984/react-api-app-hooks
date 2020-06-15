@@ -9,6 +9,9 @@
   height: 70%;
   min-height: 300px;
   border-radius: 8px;
+  @include large {
+    height: 50%;
+  }
   &.modal--active {
     animation: modalActive 0.7s ease-in;
   }
@@ -23,6 +26,10 @@
     border-radius: 50%;
     cursor: pointer;
     transition: color 1s ease;
+    @include large {
+      width: 45px;
+      height: 45px;
+    }
     &::before {
       content: "";
       position: absolute;
@@ -34,6 +41,10 @@
       border-radius: 5px;
       background-color: white;
       transform: rotate(45deg);
+      @include large {
+        top: 11px;
+        right: 20px;
+      }
     }
     &::after {
       @extend .modal__close::before;
@@ -55,6 +66,9 @@
       text-align: center;
       @include medium {
         flex-basis: 40%;
+      }
+      @include large {
+        flex-basis: 25%;
       }
       .modal__user--img--container {
         position: relative;

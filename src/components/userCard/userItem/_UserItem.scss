@@ -5,11 +5,9 @@
   align-items: center;
   height: 450px;
   background-color: $cardItem--background;
-  @include medium {
-    height: 470px;
+  @include large {
+    border-radius: 20px;
   }
-  // desktop
-  // border-radius: 20px;
 
   &__nav {
     display: grid;

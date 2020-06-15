@@ -1,13 +1,13 @@
 .card {
   width: 100%;
-  max-width: 1000px;
+  // max-width: 1000px;
   margin: 15px auto;
+  @include large {
+    max-width: 750px;
+  }
   &--active {
     height: 450px;
     margin: 15px auto;
-    @include medium {
-      height: 470px;
-    }
   }
 }
 
@@ -17,8 +17,5 @@
   }
   to {
     height: 450px;
-    @include medium {
-      height: 470px;
-    }
   }
 }

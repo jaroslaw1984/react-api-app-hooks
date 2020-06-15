@@ -16,15 +16,21 @@
     grid-template-rows: auto 1fr auto;
     justify-items: center;
     width: 100%;
-    max-width: 1000px;
     margin: 10px auto;
     padding: 20px 0 20px;
     background-color: $details--bacgroundColor;
+    @include large {
+      max-width: 750px;
+      border-radius: 20px;
+    }
     &__info {
       margin-left: 10px;
       font-size: 12px;
       @include medium {
         font-size: 15px;
+      }
+      @include large {
+        font-size: 18px;
       }
       & h2,
       p {
@@ -53,6 +59,9 @@
         @include medium {
           font-size: 28px;
         }
+        @include large {
+          font-size: 30px;
+        }
       }
       &__img {
         border: 2px solid $details__img__border--color;
@@ -64,6 +73,10 @@
           @include medium {
             width: 140px;
             height: 140px;
+          }
+          @include large {
+            width: 150px;
+            height: 150px;
           }
         }
       }
@@ -78,12 +91,18 @@
         color: $cardItemPlusIcon--color;
         cursor: pointer;
         transition: all 0.5s ease;
+        @include large {
+          font-size: 40px;
+        }
         &:hover {
           color: $details__plus--color;
         }
       }
       .stars {
         font-size: 35px;
+        @include large {
+          font-size: 40px;
+        }
       }
     }
     .info {
