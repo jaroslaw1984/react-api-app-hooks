@@ -1,5 +1,10 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
+import img_1 from "../../../assets/images/img_1.jpg";
+import img_2 from "../../../assets/images/img_2.jpg";
+import img_3 from "../../../assets/images/img_3.jpg";
+import img_4 from "../../../assets/images/img_4.jpg";
+import img_5 from "../../../assets/images/img_5.jpg";
 
 const About = () => {
   return (
@@ -28,7 +33,7 @@ const About = () => {
             <h3>How it works...</h3>
 
             <h4>Select a gender.</h4>
-            <span>--img--</span>
+            <img src={img_1} alt="gender" />
             <p>
               After you select a gender you will see fetched data from outer
               free API for generating random user data that is call{" "}
@@ -44,7 +49,7 @@ const About = () => {
 
           <article>
             <h4>Rate the person</h4>
-            <span>--img--</span>
+            <img src={img_2} alt="rate" />
             <p>
               The application allows you to rate people, if you add stars, the
               application will remember your rating when the same person is
@@ -54,7 +59,7 @@ const About = () => {
 
           <article>
             <h4>Add favorite person to bookmark</h4>
-            <span>--img--</span>
+            <img src={img_3} alt="bookmark" />
             <p>
               If any person you like to add as a favorite you can do it by
               pressing an icon in the right corner. If you want to add the same
@@ -64,7 +69,7 @@ const About = () => {
 
           <article>
             <h4>Favorite panel</h4>
-            <span>--img--</span>
+            <img src={img_4} alt="panel" />
             <p>
               Favorite panel allow to mange people that were added to this
               bookmark also data are added to local storage in case when browser
@@ -76,7 +81,7 @@ const About = () => {
 
           <article>
             <h4>More details</h4>
-            <span>--img--</span>
+            <img src={img_5} alt="details" />
             <p>
               More details allow you see personal information about were the
               person lives, age, email. From details you can rate person and add

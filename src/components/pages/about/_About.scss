@@ -58,6 +58,11 @@
         @include large {
           font-size: 28px;
         }
+        & + img {
+          width: 90%;
+          margin: 20px;
+          border: 2px dotted white;
+        }
       }
     }
     & .link {
