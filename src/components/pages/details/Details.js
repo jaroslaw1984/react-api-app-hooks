@@ -82,10 +82,10 @@ const Details = ({ match }) => {
             </div>
 
             <div className="details__person__name">
-              <h1>
+              <h2>
                 {user === undefined ? fav.name.first : user.name.first}{" "}
                 {user === undefined ? fav.name.last : user.name.last}
-              </h1>
+              </h2>
             </div>
           </div>
 
