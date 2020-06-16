@@ -3,7 +3,7 @@ import loading from "./searchIcon.svg";
 
 const Loading = () => (
   <div className="spinner">
-    <img src={loading} alt="" className="spinner__img" />
+    <img src={loading} alt="Loading" className="spinner__img" />
   </div>
 );
 
