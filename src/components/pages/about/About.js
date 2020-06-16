@@ -16,7 +16,7 @@ const About = () => {
         </header>
 
         <main>
-          <article>
+          <section>
             <p>
               This application allow you search your other half that can be male
               or female. If you find a person that you like it, add that person
@@ -27,13 +27,13 @@ const About = () => {
               he/she lives, age, e-mail. If you have not rated this person
               before, you can do it there as well.
             </p>
-          </article>
+          </section>
 
-          <article>
-            <h3>How it works...</h3>
+          <section>
+            <h2>How it works...</h2>
 
-            <h4>Select a gender.</h4>
-            <img src={img_1} alt="gender" />
+            <h3>Select a gender.</h3>
+            <img src={img_1} alt="Gender selection" />
             <p>
               After you select a gender you will see fetched data from outer
               free API for generating random user data that is call{" "}
@@ -45,31 +45,31 @@ const About = () => {
                 randomuser.me
               </a>
             </p>
-          </article>
+          </section>
 
-          <article>
-            <h4>Rate the person</h4>
-            <img src={img_2} alt="rate" />
+          <section>
+            <h3>Rate the person</h3>
+            <img src={img_2} alt="See how to rate a person" />
             <p>
               The application allows you to rate people, if you add stars, the
               application will remember your rating when the same person is
               displayed again
             </p>
-          </article>
+          </section>
 
-          <article>
-            <h4>Add favorite person to bookmark</h4>
-            <img src={img_3} alt="bookmark" />
+          <section>
+            <h3>Add favorite person to bookmark</h3>
+            <img src={img_3} alt="See how to add person to bookmark" />
             <p>
               If any person you like to add as a favorite you can do it by
               pressing an icon in the right corner. If you want to add the same
               person twice, the application will not allow to do that.
             </p>
-          </article>
+          </section>
 
-          <article>
-            <h4>Favorite panel</h4>
-            <img src={img_4} alt="panel" />
+          <section>
+            <h3>Favorite panel</h3>
+            <img src={img_4} alt="Favorite panel options" />
             <p>
               Favorite panel allow to mange people that were added to this
               bookmark also data are added to local storage in case when browser
@@ -77,20 +77,22 @@ const About = () => {
               added. Panel allow you to see more personal details or delete that
               person.
             </p>
-          </article>
+          </section>
 
-          <article>
-            <h4>More details</h4>
-            <img src={img_5} alt="details" />
+          <section>
+            <h3>More details</h3>
+            <img src={img_5} alt="How details are view" />
             <p>
               More details allow you see personal information about were the
               person lives, age, email. From details you can rate person and add
               to favorite panel.
             </p>
-          </article>
+          </section>
 
           <Link to="/">
-            <button className="button button__about--back">Back</button>
+            <button className="button button__about--back" alt="Back">
+              Back
+            </button>
           </Link>
         </main>
       </div>
