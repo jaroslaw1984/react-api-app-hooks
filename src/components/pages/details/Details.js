@@ -39,7 +39,9 @@ const Details = ({ match }) => {
       <Fragment>
         <h1 className="not__exists__h1">This person no longer exists</h1>
         <Link to="/">
-          <button className="button not__exists__button--back">Back</button>
+          <button className="button not__exists__button--back" alt="Back">
+            Back
+          </button>
         </Link>
       </Fragment>
     );
@@ -67,7 +69,9 @@ const Details = ({ match }) => {
               E-mail: <span>{user === undefined ? fav.email : user.email}</span>
             </p>
             <Link to="/">
-              <button className="button button__more--back">Back</button>
+              <button className="button button__more--back" alt="Back">
+                Back
+              </button>
             </Link>
           </div>
 
@@ -93,6 +97,7 @@ const Details = ({ match }) => {
             <FontAwesomeIcon
               icon={faUserPlus}
               className="plus"
+              alt="Add person to bookmark"
               onClick={() =>
                 users.length !== 0
                   ? handlePutToFavorite(users[index])
