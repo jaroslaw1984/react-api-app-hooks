@@ -11,7 +11,7 @@ import Favorite from "../components/favorite/Favorite";
 const App = () => {
   return (
     <AppState>
-      <Router>
+      <Router basename={"/api"}>
         <div className="container">
           <Switch>
             <Route exact path="/" component={Home} />
