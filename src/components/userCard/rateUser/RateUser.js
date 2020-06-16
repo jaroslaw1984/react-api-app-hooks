@@ -40,6 +40,7 @@ const RateUser = () => {
               <input
                 type="radio"
                 name="rate"
+                alt="Star"
                 value={value}
                 onClick={() => handleSetRate(value)}
               />
