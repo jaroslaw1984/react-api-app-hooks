@@ -8,7 +8,7 @@ const IsUserExists = ({ click, name, last, isUserExists }) => {
         {name} {last}
       </h3>
       <p>already exists in favorite bookmark</p>
-      <button onClick={click} className="button button--attention">
+      <button onClick={click} className="button button--attention" alt="Ok">
         OK
       </button>
     </div>
